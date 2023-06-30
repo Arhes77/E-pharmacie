@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string("nom_cat");
+            $table->string("descri_cat");
+            $table->foreignId("famille_id")->onDelete('cascade');
             $table->timestamps();
         });
     }

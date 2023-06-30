@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('message_forums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")->onDeleteCascade();
+            $table->string("conten_smsF");
             $table->timestamps();
         });
     }

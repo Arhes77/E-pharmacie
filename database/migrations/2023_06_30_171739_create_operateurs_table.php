@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('operateurs', function (Blueprint $table) {
             $table->id();
+            $table->string("rsonS_op");
             $table->timestamps();
         });
     }

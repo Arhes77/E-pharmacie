@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reponse_pers', function (Blueprint $table) {
             $table->id();
+            $table->string('reponsepers');
+            $table->foreignId("message_pers_id")->onDeleteCascade();
+            $table->foreignId("user_id")->onDeleteCascade();
             $table->timestamps();
         });
     }
