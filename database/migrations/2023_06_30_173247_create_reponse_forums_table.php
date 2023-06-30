@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reponse_forums', function (Blueprint $table) {
             $table->id();
+            $table->string('reponseforum');
+            $table->foreignId("message_forums_id")->onDeleteCascade();
+            $table->foreignId("user_id")->onDeleteCascade();
             $table->timestamps();
         });
     }

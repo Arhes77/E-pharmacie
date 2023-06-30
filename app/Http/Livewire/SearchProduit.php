@@ -6,6 +6,10 @@ use Livewire\Component;
 
 class SearchProduit extends Component
 {
+    public String $query='';
+    public $produits=[];
+    public Int $selectedIndex=0;
+    
     public function render()
     {
         return view('livewire.search-produit');
