@@ -2,31 +2,12 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-=======
-use App\Models\Client;
-use Illuminate\Http\Request;
->>>>>>> 955dd8999927e124e65aefa4316ce29b618dfa9e
 
 class Paiement extends Model
 {
-<<<<<<< HEAD
-    use HasFactory;
-    protected $guarded = [];
-    protected $fillable = ['info_paye'];
-
-    public function commande(): BelongsTo{
-        return $this->belongsTo(Client::class);
-    }
-
-    public function operateur(): BelongsTo{
-        return $this->belongsTo(Personnel::class);
-    }
-
-=======
     /**
      * Display a listing of the resource.
      *
@@ -130,5 +111,4 @@ class Paiement extends Model
 
         return redirect()->route('client.index');
     }
->>>>>>> 955dd8999927e124e65aefa4316ce29b618dfa9e
 }
