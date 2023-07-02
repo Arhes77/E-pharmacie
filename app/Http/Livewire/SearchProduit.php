@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Produit;
 use Livewire\Component;
 
 class SearchProduit extends Component
