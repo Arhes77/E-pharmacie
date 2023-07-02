@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Client;
-use App\Models\Personnel;
 use App\Models\Status;
-use Illuminate\Http\Request;
+use App\Models\Personnel;
+use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ClientController extends Controller
 {
-     //les methde de traitement
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -83,7 +84,7 @@ class ClientController extends Controller
        $personnel->save([$personnel]);
 
         return redirect()->route('personnel.index');
-        
+
     }
 
 
