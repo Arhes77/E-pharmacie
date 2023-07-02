@@ -1,18 +1,22 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Models\Client;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ConseilController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\PersonnelController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\MessagePersController;
 use App\Http\Controllers\ReponsePersController;
 use App\Http\Controllers\MessageForumController;
 use App\Http\Controllers\ReponseForumController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +29,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Route::get('/', function () {
+    return view('acceuil.acceuil');
+})->name('acceuil');*/
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('acceuil');
+
+
+Route::get('/connexion', function(){
+    return view('auth.connexion');
+})->name('connexion');
+
+Route::get('/compte', function(){
+    return view('auth.register');
+})->name('registration');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::post('/register',[RegisteredUserController::class, 'store'])->name('register');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,13 +61,22 @@ Route::middleware('auth')->group(function () {
 
 //routes pour le personnel
 Route::get('/personnel/index',[PersonnelController::class,'index'])->name("personnel.index");
-Route::get('/personnel/create/{user}',[PersonnelController::class,'create'])->name("personnel.create");
-Route::post('/personnel/update/{user}',[PersonnelController::class,'update'])->name("personnel.update");
-Route::post('/personnel/show/{user}',[PersonnelController::class,'show'])->name("personnel.show");
-Route::delete('/personnel/destroy/{user}',[ProduitController::class,'destroy'])->name('personnel.delete');
+Route::get('/personnel/change/{personnel}',[PersonnelController::class,'change'])->name("personnel.change");
+Route::post('/personnel/update/{personnel}',[PersonnelController::class,'update'])->name("personnel.update");
+Route::get('/personnel/show/{personnel}',[PersonnelController::class,'show'])->name("personnel.show");
+Route::get('/personnel/edit/{personnel}',[PersonnelController::class,'edit'])->name("personnel.edit");
+Route::delete('/personnel/destroy/{personnel}',[PersonnelController::class,'destroy'])->name('personnel.delete');
 
+//routes pour les clients
+Route::get('/client/index',[ClientController::class,'index'])->name("client.index");
+Route::get('/client/create/{user}',[ClientController::class,'create'])->name("client.create");
+Route::post('/client/update/{user}',[ClientController::class,'update'])->name("client.update");
+Route::get('/client/show/{user}',[ClientController::class,'show'])->name("client.show");
+Route::get('/client/edit/{user}',[ClientController::class,'edit'])->name("pclient.edit");
+Route::delete('/client/destroy/{user}',[ClientController::class,'destroy'])->name('client.delete');
 
-
+// route pour la moddification des users
+Route::post('/user/store/{user}', [UserController::class, 'store'])->name('user.store');
 
 //pour la fimille de produit
 Route::get('/famille/index',[FamilleController::class,'create'])->name('famille.index');
