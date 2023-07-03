@@ -20,6 +20,10 @@
             <input type="text" name="descri_prod" id="descri" > 
         </div>
         <div>
+            <label for="code">code produit</label> 
+            <input type="text" name="code_prod" id="code" > 
+        </div>
+        <div>
             <label for="prix">prix</label> 
             <input type="number" name="prix_prod" id="prix" > 
         </div>
@@ -34,7 +38,9 @@
 
         <div>
             <label for="path">categorie du produit</label> 
-            <select name="categorie_id" id="">
+            <select name="categorie_id" id="path">
+                <option value="testcategorie">testcategorie</option>
+                <option value="test">test</option>
                 @foreach ($cats as $cat)
                 <option value="{{$cat->id}}" >{{$cat->nom_cat}}</option>
                 @endforeach
