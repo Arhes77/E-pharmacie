@@ -13,14 +13,7 @@ return new class extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->id();
-            $table->string("nom_pers");
-            $table->string("prenom_pers");
-            $table->string("email_pers");
-            $table->string("tel_pers");
-            $table->string("dateN_pers");
-            $table->string("url_pers");
-            $table->string("adress_pers");
-            $table->string("qualif_pers");
+            $table->foreignId("user_id")->onDeleteCascade();
             $table->timestamps();
         });
     }

@@ -20,9 +20,9 @@ class PersonnelController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $personnel = Personnel::all();
 
-        return view('personnel.index', compact('user'));
+        return view('personnel.index', compact('personnel'));
     }
 
     /**
@@ -30,25 +30,25 @@ class PersonnelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(User $user):View
+    public function change(Personnel $personnel):View
     {
         $status = Status::all();
-        return view('Personnel.create', compact('user', 'status'));
+        $user = User::where('id','=', $personnel->user_id)->get();
+        return view('personnel.change', compact('personnel', 'status', 'user'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Personnel  $personnel
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Personnel $personnel)
     {
-        // dd($Personnel->id);
-        $cours=User::where('users_id','=',$user->id)->get();
 
+        $user=User::where('id','=',$personnel->user_id)->get();
 
-        return view('personnel.show',compact('cours'));
+        return view('personnel.show',compact('user','personnel'));
 
     }
 
@@ -56,29 +56,34 @@ class PersonnelController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
+     *  @param  \App\Models\Personnel  $personnel
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Personnel $personnel)
     {
-        //
+        $user = User::where('id','=',$personnel->user_id)->get();
+        return view('personnel.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User $user
+     * @param  \App\Models\Personnel $Personnel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Personnel $personnel)
     {
 
      $request->validate([
-       'statut_id' => 'required|exists:statuts,id'
+       'status_id' => 'required|exists:statuses,id'
         ]);
 
-       $data = $request->except('_token');
-       $user->update($data);
+        $user = User::where('id','=',$personnel->user_id)->get();
+        $user->status_id = $request->status_id;
+       $user->update($user);
+
+
 
         return redirect()->route('personnel.index');
     }
@@ -90,11 +95,14 @@ class PersonnelController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Personnel $personnel)
     {
-        $user->delete();
+        $user = User::where('id','=',$personnel->user_id)->get();
+        $user->statut_id = 9;
+        $user->update($user);
+        $personnel->delete();
 
-        return redirect()->route('Personnel.index');
+        return redirect()->route('personnel.index');
     }
 
    /* public function guard()

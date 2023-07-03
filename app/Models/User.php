@@ -33,8 +33,12 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function statut(): BelongsTo{
-        return $this->belongsTo(Statut::class);
+    public function status(): BelongsTo{
+        return $this->belongsTo(Status::class);
+    }
+
+    public function personnel(): BelongsTo{
+        return $this->belongsTo(Personnel::class);
     }
     public function commande(): HasMany {
         return $this->hasMany(Commande::class);

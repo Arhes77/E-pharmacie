@@ -1,35 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Rules\Password;
 use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 
-class RegisteredUserController extends Controller
+class UserController extends Controller
 {
     /**
-     * Display the registration view.
-     */
-    public function create(): View
-    {
-        return view('auth.register');
-    }
-
-    /**
-     * Handle an incoming registration request.
+     * Store a newly created resource in storage.
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @param  \Illuminate\Http\Request  $request
+     *  @param  \Illuminate\Http\User  $user
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, User $user)
+
     {
+
         $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
@@ -45,8 +36,8 @@ class RegisteredUserController extends Controller
         $filename = time() . '.' . $request->profil->extension();
         $path= $request->file('profil')->storeAs('UserProfil', $filename, 'public');
 
-    
-        $user = User::create([
+
+        $user->update([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
@@ -59,10 +50,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
 
-        Auth::login($user);
+return back();
 
-        return redirect(RouteServiceProvider::HOME);
     }
+
 }
