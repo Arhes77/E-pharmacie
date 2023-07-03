@@ -22,7 +22,7 @@
     <div class="w-1/2 items-center">
         <livewire:search-produit />
     </div>
-    <livewire:panier-produit /><br>
+    <livewire:panier-produit />
 
 
     {{-- @foreach ($prod as $p)
