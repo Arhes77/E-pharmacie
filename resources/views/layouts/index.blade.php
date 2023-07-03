@@ -12,9 +12,13 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        [ x-cloak ] { display: none;}
+    </style>
+   
 </head>
-
+@livewireStyles
 <body class="bg-gray-100">
     <div id="app">
         <header class="block w-full mx-auto my-auto justify-between items-center text-sm">
@@ -104,7 +108,8 @@
                 </div>
                 <div class="flex">
                     {{-- composants Pannier --}}
-                    <button>Panier</button>
+                    {{-- <button>Panier</button> --}}
+                   <livewire:panier-produit />
                 </div>
             </div>
             {{-- navigation --}}
@@ -139,7 +144,8 @@
 
         </footer>
     </div>
-    @vite('resources/js/app.js')
+   
+    @livewireScripts
 </body>
 
 </html>
