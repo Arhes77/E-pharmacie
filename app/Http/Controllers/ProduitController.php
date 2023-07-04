@@ -52,6 +52,7 @@ class ProduitController extends Controller
         $request->validate([
                 'nom_prod' => ['required','max:255'],
                 'descri_prod' => ['required','string' , 'min:10'],
+                'code_prod' => ['required','string' , 'min:10'],
                 'prix_prod' => ['required'],
                
                 'url_prod' => ['required','image'],
@@ -87,7 +88,7 @@ class ProduitController extends Controller
         $prod =new Produit();
         $prod->nom_prod=$request->nom_prod;
         $prod->prix_prod=$request->prix_prod;
-        
+        $prod->code_prod=$request->code_prod;        
         $prod->url_prod=$path;
         $prod->descri_prod=$request->descri_prod;
         $prod->qteS_prod=$request->qteS_prod;

@@ -12,17 +12,14 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        [ x-cloak ] { display: none;}
-    </style>
-   
+    @vite('resources/css/app.css')
+    @livewireStyles
 </head>
-@livewireStyles
-<body class="bg-gray-100">
-    <div id="app">
+
+<body class="">
+    <div >
         <header class="block w-full mx-auto my-auto justify-between items-center text-sm">
-            <div class="h-12.05 bg-black text-white w-full dark:bg-gray-300:text-black flex">
+            <div class="h-12.05 bg-black text-white w-full flex">
                 <div class="flex items-center">
                     <a class="flex ml-3 px-auto">
                         Contactez-nous<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -40,13 +37,19 @@
                 </div>
 
                 <div class="ml-auto items-center flex">
-                    @auth
-                        <div class="flex">
+                    @if (Auth::user())
+                     <!-- Settings Dropdown -->
+                        <div class="flex mx-2">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <button
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <div>{{ Auth::user()->name }}</div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 fill-blue-500 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                        <div>{{ Auth::user()->nom }}</div>
 
                                         <div class="ml-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -77,44 +80,45 @@
                                 </x-slot>
                             </x-dropdown>
                         </div>
-                    @endauth
-                    <div class="p-1 text-center">
-                        <div class="p-1 text-center"></div>
-                        <a href="{{ route('login') }}"
-                            class="text-center items-center px-20 py-1.5 bg-blue-500 border border-gray-600 rounded-sm text-sm font-extrabold text-black">
-                            Sign in
-                        </a>
-                        <div class="text-sm pt-1">
-                            New customer?
-                            <a href="{{ route('register') }}" class="text-blue-700 hover:blue-500">
-                                Start here.
+                    @else
+                        <div class="p-1 text-center">
+                            <div class="p-1 text-center"></div>
+                            <a href="{{ route('login') }}"
+                                class="text-center items-center px-20 py-1.5 bg-blue-500 border border-gray-600 rounded-sm text-sm font-extrabold text-black">
+                                Sign in
                             </a>
+                            <div class="text-sm pt-2">
+                                Nouveau chez nous ?
+                                <a href="{{ route('register') }}" class="text-blue-700 hover:blue-500">
+                                    Commencez ici.
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
                     {{-- Dark theme a implementer --}}
 
                 </div>
             </div>
-            <div class="flex flex-row mx-15% bg-white dark:bg-gray-100">
-                <div class="flex">
-                    <Logo />
+            <div class="flex flex-row mx-15% bg-white">
+                <div class="flex w-1/3 my-2">
+                    <x-application-logo />
                 </div>
-                <div class="my-auto mx-3 w-2/3">
-
+                <div class="my-auto w-1/3">
                     {{-- composants de reherche --}}
-
-                    <input type="text" name="" id="">
+                    <div class="w-1/2 items-center">
+                        <livewire:search-produit />
+                    </div>
                 </div>
-                <div class="flex">
+
+                <div class="flex w-3/5 mx-3">
                     {{-- composants Pannier --}}
-                    {{-- <button>Panier</button> --}}
-                   <livewire:panier-produit />
+                    <livewire:panier-produit />
                 </div>
             </div>
             {{-- navigation --}}
             <div class="pt-5 w-full flex flex-row h-full">
-                <x-responsive-nav-link class="focus:bg-blue-600">
+                <x-responsive-nav-link :href="route('produit.index')" class="focus:bg-blue-600">
                     {{ __('Medicaments') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link>
@@ -138,13 +142,13 @@
 
 
         <h1><b>blade php</b></h1>
-        
+
 
         <footer>
 
         </footer>
     </div>
-   
+    @vite('resources/js/app.js')
     @livewireScripts
 </body>
 
