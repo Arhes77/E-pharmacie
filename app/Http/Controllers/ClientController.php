@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Status;
 use App\Models\Personnel;
-use Illuminate\Database\Eloquent\Model;
-use Symfony\Component\HttpFoundation\Request;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
