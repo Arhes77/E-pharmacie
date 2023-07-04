@@ -15,7 +15,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Mot de passe')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="current-password" />
@@ -33,21 +33,28 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
+            <div class="text-sm pt-2">
+                Nouveau chez nous ?
+                <a href="{{ route('register') }}" class="text-blue-700 hover:opacity-70">
+                    Commencez ici.
+                </a>
+            </div>
             <x-primary-button class="ml-3">
-                {{ __('Log in') }}
+                {{ __('Connecter') }}
             </x-primary-button>
         </div>
         <div class="text-xs pt-4">
-            By signing-in you agree to PHARMA237 Conditions of Use & Sale.
-            Please see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
+            Toujours hereux de vous revoir sur notre pharmacie!! <br> En vous conectant vous accepter nos <a
+                class="text-blue-500 hover:opacity-70" href="#"> conditions de
+                vente et d'utilisation.</a>
         </div>
 
         <div class="flex items-center justify-start mt-4">
 
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}"
-                    class="hover:underline text-sm text-blue-700 hover:text-red-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Forgot your password?
+                    class="hover:underline text-sm hover:opacity-70 text-blue-700 hover:text-red-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Mot de passe oublier?
                 </a>
             @endif
         </div>
