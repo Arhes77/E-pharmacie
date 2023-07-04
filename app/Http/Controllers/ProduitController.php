@@ -52,7 +52,7 @@ class ProduitController extends Controller
         $request->validate([
                 'nom_prod' => ['required','max:255'],
                 'descri_prod' => ['required','string' , 'min:10'],
-                'code_prod' => ['required','string' , 'min:10'],
+                'code_prod' => ['required','string'],
                 'prix_prod' => ['required'],
                
                 'url_prod' => ['required','image'],
