@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Filament\Models\Contracts\HasName;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,7 +12,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements HasName
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -32,6 +35,21 @@ class User extends Authenticatable
         'statut_id',
         'password',
     ];
+
+    public function getFilamentName(): string
+    {
+        return $this->nom;
+    }
+
+    /**
+   * Get the user's full name.
+   *
+   * @return string
+   */ 
+    public function getFullNameAttribute()
+    {
+        return "{$this->nom} {$this->prenom}";
+    }
 
     public function status(): BelongsTo{
         return $this->belongsTo(Status::class);
