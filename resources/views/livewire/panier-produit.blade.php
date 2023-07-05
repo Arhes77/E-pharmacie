@@ -1,9 +1,5 @@
 <div x-data="{ open: false }" @Panier-message.window="open = true" @mouseover="open = true"
-<<<<<<< HEAD
-    class="flex my-auto mx-auto mr-1 w-3/5  "  x-cloak>
-=======
     class="flex my-auto mx-auto mr-1">
->>>>>>> ea1cdb35c9b626705a5f574a1316eb57de6cb187
     <div class="grid">
         <x-primary-button>
             <svg @click="open= !open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -67,7 +63,7 @@
                                         </a>
                                     </td>
                                 </tr>
-                            @empty
+                              @empty
                             @endforelse
 
 

@@ -18,9 +18,8 @@
     @livewireStyles
 </head>
 
-<body class="" x-data="{ darkMode: false }" x-init="
-if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  localStorage.setItem('darkMode', JSON.stringify(true));
+<body class="" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    localStorage.setItem('darkMode', JSON.stringify(true));
 }
 darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
@@ -72,21 +71,22 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     </button>
                                 </x-slot>
 
-                                <x-slot name="content">
-                                    <x-dropdown-link :href="route('profile.edit')">
-                                        {{ __('Profile') }}
-                                    </x-dropdown-link>
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')"
-                                            onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                            {{ __('Log Out') }}
+                                <x-slot name="content">                
+                                       <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                        href="/admin">Administration</a>
+                                     <x-dropdown-link :href="route('profile.edit')">
+                                        {{ __('Profil') }}
                                         </x-dropdown-link>
-                                    </form>
+                                        <!-- Authentication -->
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                            <x-dropdown-link :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-dropdown-link>
+                                        </form>
                                 </x-slot>
                             </x-dropdown>
                         </div>
@@ -109,8 +109,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                     {{-- Dark theme a implementer --}}
                     <div class="mr-2">
-                        <button id="theme-toggle" type="button" x-bind:class="darkMode ? 'bg-green-500' : 'bg-gray-200'"
-                            x-on:click="darkMode = !darkMode"
+                        <button id="theme-toggle" type="button"
+                            x-bind:class="darkMode ? 'bg-green-500' : 'bg-gray-200'" x-on:click="darkMode = !darkMode"
                             class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                             role="switch" aria-checked="false">
                             <span class="sr-only">Dark mode toggle</span>
@@ -126,7 +126,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     </svg>
                                 </span>
                                 <span
-                                    x-bind:class="darkMode ?  'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
+                                    x-bind:class="darkMode ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
                                     class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
                                     aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white"
@@ -380,11 +380,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
     </div>
     @vite('resources/js/app.js')
     @livewireScripts
-</body >
+</body>
 <script>
     const toggleButton = document.querySelector('#theme-toggle');
     toggleButton.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
+        document.documentElement.classList.toggle('dark');
     });
 </script>
 

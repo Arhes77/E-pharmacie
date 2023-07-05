@@ -17,6 +17,7 @@ class ProduitComponent extends Component
 {
 
     public $p;
+    public $bools=1;
     protected $listeners =['retirer'=>'retirerPanier']; 
     public $items;
     
