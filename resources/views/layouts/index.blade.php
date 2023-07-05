@@ -18,10 +18,18 @@
     @livewireStyles
 </head>
 
-<body class="">
-    <div>
-        <header class="block sticky bg-white top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+<body class="" x-data="{ darkMode: false }" x-init="
+if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  localStorage.setItem('darkMode', JSON.stringify(true));
+}
+darkMode = JSON.parse(localStorage.getItem('darkMode'));
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
+    <div -bind:class="{'dark' : darkMode === true}">
+        <header
+            class="block sticky dark:relative bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
+                {{-- contactez nous  --}}
                 <div class="flex items-center">
                     <a class="flex ml-3 px-auto">
                         Contactez-nous<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -37,7 +45,7 @@
                         </svg>
                     </a>
                 </div>
-
+                {{-- user component --}}
                 <div class="ml-auto items-center flex">
                     @if (Auth::user())
                         <!-- Settings Dropdown -->
@@ -100,34 +108,67 @@
                     @endif
 
                     {{-- Dark theme a implementer --}}
-
+                    <div class="mr-2">
+                        <button id="theme-toggle" type="button" x-bind:class="darkMode ? 'bg-green-500' : 'bg-gray-200'"
+                            x-on:click="darkMode = !darkMode"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            role="switch" aria-checked="false">
+                            <span class="sr-only">Dark mode toggle</span>
+                            <span x-bind:class="darkMode ? 'translate-x-5 bg-gray-700' : 'translate-x-0 bg-white'"
+                                class="pointer-events-none relative inline-block h-5 w-5 transform rounded-full shadow ring-0 transition duration-200 ease-in-out">
+                                <span
+                                    x-bind:class="darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200'"
+                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                    aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-gray-400"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                                    </svg>
+                                </span>
+                                <span
+                                    x-bind:class="darkMode ?  'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
+                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                                    aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white"
+                                        viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
+            {{-- Logo composant de recherche et pannier --}}
             <div class="flex mb-0 flex-row w-full ">
+                {{-- Logo --}}
                 <div class="flex w-1/4 py-2">
                     <x-application-logo />
                 </div>
+                {{-- composant de recherche --}}
                 <div class="py-auto self-center flex w-1/2">
                     {{-- composants de reherche --}}
                     <livewire:search-produit />
                 </div>
-
-                <div class="flex w-1/4 ml-auto mr-2 overflow-hidden">
+                {{-- composant du pannier --}}
+                <div class="flex w-1/4 m-5">
                     {{-- composants Pannier --}}
                     <livewire:panier-produit />
                 </div>
             </div>
             {{-- navigation --}}
-            <div class="mt-0">
+            <div class="mt-0 dark:text-white">
                 <nav class="pt-5 w-full  flex flex-row">
-                    <x-responsive-nav-link :href="route('produit.index')" class="focus:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index')" class="hover:bg-blue-600">
                         {{ __('Medicaments') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>
                         {{ __('Parapharmacie') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>
-                        {{ __('Veterinaire') }}
+                        {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>
                         {{ __('Services') }}
@@ -139,20 +180,16 @@
         </header>
 
         <!-- Page Content -->
-        <main>
+        <main class="dark:bg-gray-900 dark:text-gray-400">
             @yield('main')
         </main>
 
-
-
-
-
         {{-- <!-- Footer section made by @WillySmith  --> --}}
-        <footer class="bg-neutral-900 text-center text-white">
+        <footer class="bg-black text-center text-white">
             <div class="container px-6 pt-6">
                 <!-- Lien et Newletter  section -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-4">
-                    <div class="mb-6">
+                    <div class="mb-6 border-l-3">
                         <h5 class="mb-2.5 text-green-500 text-xl font-bold uppercase">A Propos</h5>
 
                         <ul class="mb-0 list-none">
@@ -174,7 +211,8 @@
                                     pharmacies en ligne</a>
                             </li>
                             <li>
-                                <a href="#!" class="text-white hover:text-blue-600 hover:opacity-70">&Eacute;vitez
+                                <a href="#!"
+                                    class="text-white hover:text-blue-600 hover:opacity-70">&Eacute;vitez
                                     les
                                     contrefa&ccedil;on </a>
                             </li>
@@ -185,7 +223,7 @@
                     </div>
 
                     {{-- Liens utile --}}
-                    <div class="mb-6">
+                    <div class="mb-6 border-l-3">
                         <h5 class="mb-2.5 text-green-500 text-xl font-bold uppercase">Cat&eacute;gories</h5>
 
                         <ul class="mb-0 list-none">
@@ -218,7 +256,7 @@
                     </div>
 
                     {{-- NewLetter section --}}
-                    <div class="mb-6 lg:col-span-2 min-w-full flex flex-row">
+                    <div class="mb-6 border-l-3 lg:col-span-2 min-w-full flex flex-row">
                         <form class="w-2/3 mx-3" action="" method="POST">
                             <div class="flex flex-col mx-3">
                                 <div class="md:mb-6 md:ml-auto">
@@ -342,6 +380,12 @@
     </div>
     @vite('resources/js/app.js')
     @livewireScripts
-</body>
+</body >
+<script>
+    const toggleButton = document.querySelector('#theme-toggle');
+    toggleButton.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    });
+</script>
 
 </html>

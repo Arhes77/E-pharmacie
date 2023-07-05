@@ -14,6 +14,5 @@ Alpine.start();
 const app = createApp({});
 app.component('Caroussel',Caroussell);
 app.component(VueCarousel.name='vue-carousel', VueCarousel);
-
 app.mount("#app");
 

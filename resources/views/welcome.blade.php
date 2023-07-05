@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('main')
-    <div id="app" class=" flex flex-col font-bold decoration-4 items-center">
-        <div class="w-full mx-5 my-5 -z-10 pt-1.5">
+    <div id="app" class="flex flex-col font-bold decoration-4 items-center">
+        <div class="w-full mx-5 my-5 -z-10 dark:z-0 pt-1.5">
             <Caroussel />
         </div>
         <div class="font-bold my-3 uppercase">
@@ -88,7 +88,7 @@
                 style="background-image: url('/images/cover/fond.jpg')">
                 <div class="mx-1.5 mb-auto">
                     <h1 class="text-blue-600 text-4xl">Conseils</h1>
-                    <ol class="mt-4">
+                    <ul class="list-disc list-inside mt-4">
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Comment bien choisir son
                                 soin minceur </a></li>
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Douleur musculaire </a>
@@ -98,7 +98,7 @@
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Ibuprofene : 8
                                 precautions a prendre </a></li>
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Besoin d'aide pour selectioner un produit ??? </a></li>
-                    </ol>
+                    </ul>
                 </div>
             </div>
             <div class="ml-5 mx-5 rounded-md overflow-y-scroll  bg-slate-200 w-1/2">

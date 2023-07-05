@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
+@extends('layouts.index')
+@section('main')
     <form action="{{ route('produit.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
@@ -52,8 +43,8 @@
         </div>
     </form>
 
-    {{-- <br>
-    <form action="{{ route('categorie.store',[3]) }}" method="post" enctype="multipart/form-data">
+    <br>
+    <form class="mt-5" action="{{ route('categorie.store',[1]) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <div>
@@ -68,8 +59,6 @@
             <div>
             <input type="submit" value="creer le produit">
         </div>
-    </form> --}}
+    </form>
 
-</body>
-
-</html>
+@endsection

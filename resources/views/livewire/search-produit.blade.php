@@ -17,12 +17,8 @@
         </button>
     </div>
 
-
-
     @if (strlen($query) > 3)
-
-
-        <div class="absolute z-50 bg-gray-100 px-2 my-3 py-5 shadow-lg rounded w-full" x-show="isEnable">
+        <div class="absolute z-50 bg-gray-100  px-2 my-3 py-5 shadow-lg rounded w-full" x-show="isEnable">
             @if (count($produits) > 0)
                 <h1 class="font-extrabold uppercase text-center mt-1">resultat</h1>
                 @foreach ($produits as $index => $prod)
@@ -36,8 +32,6 @@
             @else
                 <span class=" text-orange-700 text-center"> aucun resultat trouver pour "{{ $query }}"</span>
             @endif
-
-
         </div>
     @endif
 </div>
