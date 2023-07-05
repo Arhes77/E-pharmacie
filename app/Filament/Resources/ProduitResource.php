@@ -37,6 +37,7 @@ class ProduitResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            
             ->columns([
                 //
                 Tables\Columns\TextColumn::make('id'),
@@ -48,11 +49,22 @@ class ProduitResource extends Resource
             ])
             ->filters([
                 //
-                Tables\Filters\Filter::make('nom_prod'),
+                Tables\Filters\Filter::make('nom_prod')
+                ->query(fn (Builder $query): Builder => $query->where('nom_prod', true))
+                ->label('nom')
+                ->toggle(),
                 Tables\Filters\Filter::make('prix_prod')
-                ->query(fn (Builder $query): Builder => $query->whereNotNull('prix_prod')),
-                Tables\Filters\Filter::make('qteS_prod'),
-                Tables\Filters\Filter::make('categorie_id'),
+                ->query(fn (Builder $query): Builder => $query->whereNotNull('prix_prod'))
+                ->label('prix')
+                ->toggle(),
+                Tables\Filters\Filter::make('qteS_prod')
+                ->query(fn (Builder $query): Builder => $query->where('qteS_prod', true))
+                ->label('quantite en stock')
+                ->toggle(),
+                Tables\Filters\Filter::make('categorie_id')
+                ->query(fn (Builder $query): Builder => $query->where('categorie_id', true))
+                ->label('categorie')
+                ->toggle(),
                 
             ])
             ->actions([
@@ -61,6 +73,8 @@ class ProduitResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+            
+            
     }
     
     public static function getRelations(): array
@@ -83,4 +97,5 @@ class ProduitResource extends Resource
     {
         return ['id', 'nom_prod', 'descri_prod', 'qteS_prod'];
     }
+    
 }

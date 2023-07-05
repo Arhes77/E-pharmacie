@@ -103,7 +103,7 @@
 
                 </div>
             </div>
-            <div class="flex mb-0 flex-row w-full ">
+            <div class="flex  mb-0 flex-row w-full " >
                 <div class="flex w-1/4 py-2">
                     <x-application-logo />
                 </div>

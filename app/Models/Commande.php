@@ -14,11 +14,11 @@ class Commande extends Model
     protected $guarded = [];
     protected $fillable = ['status_com'];
 
-    public function article(): HasMany{
+    public function articles(): HasMany{
         return $this->hasMany(Article::class);
     }
 
-    public function produit(): HasMany{
+    public function produits(): HasMany{
         return $this->hasMany(Produit::class);
     }
 

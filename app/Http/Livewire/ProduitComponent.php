@@ -17,7 +17,8 @@ class ProduitComponent extends Component
 {
 
     public $p;
-    protected $listeners =['retirer'=>'retirerPanier']; 
+    protected $listeners =['retirer'=>'retirerPanier',
+                           'lister'=>'listerContenuePanier']; 
     public $items;
     
     public function render()
@@ -44,7 +45,8 @@ class ProduitComponent extends Component
         'id'=>$Produit->id,
         'name'=>$Produit->nom_prod,
          'price'=>$Produit->prix_prod,
-         'quantity'=>4,
+         'quantity'=>1,
+         
          'attribute'=>array(
             'image'=>$Produit->url_prod,
          ),
@@ -52,6 +54,7 @@ class ProduitComponent extends Component
   ]);
     $this->items = \Cart::getContent();
     $this->emit('PanierProduit',$this->items);
+    // app()->instance('items', \Cart::getContent());
 
            
     // return view('showPanier',compact('items'));
@@ -70,10 +73,12 @@ class ProduitComponent extends Component
         }
         public function listerContenuePanier()
         {
-            $items = \Cart::getContent();
+            $userID=2;
+            $items = \Cart::session($userID)->getContent();
+            
+            $this->emit('PanierProduit',$this->items);
             
             
-            return view('showPanier',compact('items'));
             // foreach($items as $row) {
     
             //     echo $row->id; // row ID
