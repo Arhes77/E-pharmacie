@@ -1,9 +1,9 @@
-<div x-data="{ isEnable: true }" class="relative">
+<div x-data="{ isEnable: true }" class="relative w-full ml-auto">
 
     <div
-        class="flex  mx-auto focus:border-green-500 dark:focus:border-indigo-600 focus:ring-green-100 dark:focus:ring-green-100 rounded-md shadow-sm  dark:bg-gray-100">
+        class="flex focus:border-green-500 dark:focus:border-indigo-600 focus:ring-green-100 dark:focus:ring-green-100 rounded-md shadow-sm  dark:bg-gray-100">
         <input @click.away="isEnable= false ; @this.resetIndex() ;" @click="isEnable = true"
-            class="rounded-md w-full shadow-sm border-gray-300" type="text"
+            class="rounded-md w-full  shadow-sm border-gray-300" type="text"
             placeholder="Paracethamol, Tramadhol, Dollipranne..." autocomplete="off" wire:model="query"
             wire:keydown.arrow-down.prevent="incrementIndex" wire:keydown.arrow-up.prevent="decrementIndex"
             wire:keydown.backspace="resetIndex">

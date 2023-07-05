@@ -31,11 +31,11 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
+            'nom' => 'required|string|max:255|min:3',
+            'prenom' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:'.User::class,
             'telephone' => 'required|string|max:255',
-            'adresse' => 'required|string|max:255',
+            'adresse' => 'required|string|max:255|min:3',
             'sexe' => 'required|string|max:255',
             'profil' => 'file|image|mimes:jpg,jpeg,gif,png',
             'birthdate' => 'required|string|max:255',
