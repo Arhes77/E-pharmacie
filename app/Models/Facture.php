@@ -13,7 +13,7 @@ class Facture extends Model
     protected $fillable = ['num_fact'];
 
     public function commande(): BelongsTo {
-        return $this->belongsTo(Commentaire::class);
+        return $this->belongsTo(Commande::class);
     }
 
 }

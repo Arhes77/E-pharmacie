@@ -76,10 +76,6 @@ class ClientController extends Controller
         $user->status_id = $request->status_id;
        $user->update([$user]);
 
-       $personnel = new Personnel();
-       $personnel->user_id = $user->id;
-       $personnel->save([$personnel]);
-
         return redirect()->route('personnel.index');
 
     }

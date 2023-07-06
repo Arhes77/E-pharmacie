@@ -13,11 +13,9 @@ class Paiement extends Model
     protected $fillable = ['info_paye'];
 
     public function commande(): BelongsTo{
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Commande::class);
     }
 
-    public function operateur(): BelongsTo{
-        return $this->belongsTo(Personnel::class);
-    }
+
 
 }
