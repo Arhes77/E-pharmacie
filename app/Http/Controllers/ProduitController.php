@@ -23,8 +23,9 @@ class ProduitController extends Controller
     public function index()
     {
         $prod=Produit::all();
-
-        return view('Produit.show', compact('prod'));
+        $cat = Categorie::all();
+        
+        return view('Produit.show', compact('prod','cat'));
     }
 
     /**

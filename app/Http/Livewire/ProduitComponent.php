@@ -17,8 +17,8 @@ class ProduitComponent extends Component
 {
 
     public $p;
-    protected $listeners =['retirer'=>'retirerPanier',
-                           'lister'=>'listerContenuePanier']; 
+    public $bools=1;
+    protected $listeners =['retirer'=>'retirerPanier']; 
     public $items;
     
     public function render()
