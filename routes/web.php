@@ -88,6 +88,7 @@ Route::post('/famille/store',[FamilleController::class,'store'])->name('famille.
 Route::get('/famille/show',[FamilleController::class,'index'])->name('famille.show');
 
 //pour le categorie de produit
+Route::get('/categorie/produits/{id}',[CategorieController::class,'show'])->name('categorie.show');
 Route::get('/categorie/{id}',[CategorieController::class,'create'])->name('categorie.create');
 Route::post('/categorie/store/{id_famille}',[CategorieController::class,'store'])->name('categorie.store');
 

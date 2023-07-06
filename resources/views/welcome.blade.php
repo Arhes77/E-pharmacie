@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('main')
-    <div id="app" class=" flex flex-col font-bold decoration-4 items-center">
-        <div class="w-full mx-5 my-5 -z-10 pt-1.5">
+    <div id="app" class="flex flex-col font-bold decoration-4 items-center">
+        <div class="w-full mx-5 my-5 -z-10 dark:z-0 pt-1.5">
             <Caroussel />
         </div>
         <div class="font-bold my-3 uppercase">
@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-row w-full h-max">
             <div
-                class="border  transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
+                class="border  transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/acceuil1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Soin visage </p>
                 <a href="#"
@@ -17,7 +17,7 @@
                     pannier</a>
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/minceur1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Desintoxification</p>
                 <a href="#"
@@ -26,7 +26,7 @@
 
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4 h-max  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4 h-max  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/demaquillant1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Demaquillant </p>
                 <a href="#"
@@ -34,7 +34,7 @@
                     pannier</a>
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/sommeil1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3"> Sommeil</p>
                 <a href="#"
@@ -47,7 +47,7 @@
         </div>
         <div class="flex flex-row w-full">
             <div
-                class="border transition duration-700 ease-in delay-150 dark:bg-white w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/visage1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Visage </p>
                 <a href="#"
@@ -55,7 +55,7 @@
                     pannier</a>
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-blackark:bg-white w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/acceuil2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Huile Prodiguese </p>
                 <a href="#"
@@ -63,7 +63,7 @@
                     pannier</a>
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 bg-gray-200 dark:bg-white w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-blackark:bg-white w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/demaquillant2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Nettoyant </p>
                 <a href="#"
@@ -71,7 +71,7 @@
                     pannier</a>
             </div>
             <div
-                class="border transition duration-700 ease-in delay-150 dark:bg-white w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
+                class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/visage2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Soins visage </p>
                 <a href="#"
@@ -88,7 +88,7 @@
                 style="background-image: url('/images/cover/fond.jpg')">
                 <div class="mx-1.5 mb-auto">
                     <h1 class="text-blue-600 text-4xl">Conseils</h1>
-                    <ol class="mt-4">
+                    <ul class="list-disc list-inside mt-4 text-center">
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Comment bien choisir son
                                 soin minceur </a></li>
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Douleur musculaire </a>
@@ -98,12 +98,12 @@
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Ibuprofene : 8
                                 precautions a prendre </a></li>
                         <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Besoin d'aide pour selectioner un produit ??? </a></li>
-                    </ol>
+                    </ul>
                 </div>
             </div>
-            <div class="ml-5 mx-5 rounded-md overflow-y-scroll  bg-slate-200 w-1/2">
+            <div class="ml-5 mx-5 rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
                 <div class="mx-1.5 my-1.5   pt-8 h-auto ">
-                    <h1 class="text-blue-600 text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser ???<br></h1>
+                    <h1 class="text-blue-600 text-center text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser ???<br></h1>
                     <p>Nos pharmaciens sont disponible 24/24 pour vous alors n'hesitez pas a nous contactez
                         dans le <b class="text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
                         <b class="text-xl text-blue-800">email</b>.
@@ -142,7 +142,7 @@
         <div class="font-bold flex text-4xl my-3">
             <h1> <i class="text-blue-600">Pharma237</i> : Pharmacie en ligne ET Parapharmacie </h1>
         </div>
-        <div class="flex flex-col  w-fit mx-5 my-3 items-center">
+        <div class="flex flex-col text-justify  w-fit mx-5 my-3 items-center">
             <div>
                 <p class="">
                     Pharma237-online est une parapharmacie et une pharmacie en ligne qui vous permet de commander des

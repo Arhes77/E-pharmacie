@@ -9,17 +9,17 @@ use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
-    public int $id_famille=0;
-      
+    public int $id_famille = 0;
+
     //les methde de traitement 
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $fam=Categorie::all();
+        $fam = Categorie::all();
 
         return view('Categorie.show', compact('fam'));
     }
@@ -29,11 +29,11 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(int $famille):View
+    public function create(int $famille): View
     {
-        
-       
-        return view('Categorie.index',compact('famille'));
+
+
+        return view('Categorie.index', compact('famille'));
     }
 
     /**
@@ -45,30 +45,29 @@ class CategorieController extends Controller
     public function store(Request $request, int $famille)
 
     {
-        
-        
+
+
         $request->validate([
-                'nom_cat' => ['required','max:255'],
-                'descri_cat' => ['required','string' , 'min:20'],
-           
-            ]);
-            $famill=Famille::findOrFail($famille);
-            
-            
-            $categorie=new Categorie();
-            $categorie->nom_cat=$request->nom_cat;
-            $categorie->descri_cat =$request->descri_cat;
+            'nom_cat' => ['required', 'max:255'],
+            'descri_cat' => ['required', 'string', 'min:20'],
 
-            $famill->categories()->save($categorie);
-
-            dd('hello produit creer avec succes');
+        ]);
+        $famill = Famille::findOrFail($famille);
 
 
-          
+        $categorie = new Categorie();
+        $categorie->nom_cat = $request->nom_cat;
+        $categorie->descri_cat = $request->descri_cat;
 
-             
-return redirect(route('categorie.show'));
-    
+        $famill->categories()->save($categorie);
+
+        dd('hello produit creer avec succes');
+
+
+
+
+
+        return redirect(route('categorie.show'));
     }
 
     /**
@@ -77,14 +76,12 @@ return redirect(route('categorie.show'));
      * @param  \App\Models\Categorie  $Categorie
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorie $Categorie)
+    public function show($categorie)
     {
-        // dd($Categorie->id);
-        $cat=Categorie::where('Categories_id','=',$Categorie->id)->get();
-        
-
-        return view('Categorie.show',compact('cat'));
-
+      
+        $cat = Categorie::where('id', '=', $categorie)->get();
+        $cats = Categorie::all();
+        return view('Categorie.show', compact('cat','cats'));
     }
 
     /**

@@ -34,11 +34,26 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
     ];
 
+    public function getFilamentName(): string
+    {
+        return $this->nom;
+    }
+
+    /**
+   * Get the user's full name.
+   *
+   * @return string
+   */
+    public function getFullNameAttribute()
+    {
+        return "{$this->nom} {$this->prenom}";
+    }
+
     public function status(): BelongsTo{
         return $this->belongsTo(Status::class);
     }
 
-   
+
     public function commande(): HasMany {
         return $this->hasMany(Commande::class);
     }
