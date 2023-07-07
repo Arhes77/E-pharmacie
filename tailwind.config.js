@@ -8,6 +8,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        "./node_modules/tw-elements/dist/js/**/*.js"
 
     ],
     darkMode: 'class',
@@ -19,5 +20,5 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms,require("tw-elements/dist/plugin.cjs")],
 };

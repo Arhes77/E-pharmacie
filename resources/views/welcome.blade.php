@@ -1,9 +1,41 @@
 @extends('layouts.index')
 @section('main')
-    <div id="app" class="flex flex-col font-bold decoration-4 items-center">
-        <div class="w-full mx-5 my-5 -z-10 dark:z-0 pt-1.5">
-            <Caroussel />
+    <div class="flex flex-col font-bold decoration-4 items-center">
+        <div id="carouselExampleIndicators" class="m-3 px-3" data-te-carousel-init data-te-carousel-slide>
+            <!--Carousel items-->
+            <div class="w-full overflow-hidden after:clear-both after:block after:content-['']">
+                <!--First item-->
+                <div class="float-left -mr-[100%] w-full transition-transform duration-[900ms] ease-in motion-reduce:transition-none"
+                    data-te-carousel-item data-te-carousel-active>
+                    <img src="images/cover/affiche3.jpg" class="" alt="caroussel image" />
+                </div>
+                <!--Second item-->
+                <div class="float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item>
+                    <img src="images/cover/care.jpg" class="" alt="caroussel image" />
+                </div>
+                <!--Third item-->
+                <div class="float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-item>
+                    <img src="images/cover/affiche4.jpg" class="" alt="caroussel image" />
+                </div>
+            </div>
+            <!--Carousel indicators-->
+            <div class="bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                data-te-carousel-indicators>
+                <button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="0"
+                    data-te-carousel-active
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="1"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="2"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-label="Slide 3"></button>
+            </div>
         </div>
+
         <div class="font-bold my-3 uppercase">
             <h1>Nos produits sante du mois</h1>
         </div>
@@ -89,21 +121,23 @@
                 <div class="mx-1.5 mb-auto">
                     <h1 class="text-blue-600 text-4xl">Conseils</h1>
                     <ul class="list-disc list-inside mt-4 text-center">
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Comment bien choisir son
+                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Comment bien choisir son
                                 soin minceur </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Douleur musculaire </a>
+                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Douleur musculaire </a>
                         </li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Quelle lyposaine choisir
+                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Quelle lyposaine choisir
                                 ??? </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Ibuprofene : 8
+                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Ibuprofene : 8
                                 precautions a prendre </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Besoin d'aide pour selectioner un produit ??? </a></li>
+                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Besoin d'aide pour
+                                selectioner un produit ??? </a></li>
                     </ul>
                 </div>
             </div>
             <div class="ml-5 mx-5 rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
                 <div class="mx-1.5 my-1.5   pt-8 h-auto ">
-                    <h1 class="text-blue-600 text-center text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser ???<br></h1>
+                    <h1 class="text-blue-600 text-center text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser
+                        ???<br></h1>
                     <p>Nos pharmaciens sont disponible 24/24 pour vous alors n'hesitez pas a nous contactez
                         dans le <b class="text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
                         <b class="text-xl text-blue-800">email</b>.
@@ -118,9 +152,10 @@
                         </svg>
                         <h6>Aller au Forum </h6>
                     </a>
-                    <a href="mailto:willypericlesfoumeouamba@gmail.com" class="flex hover:opacity-70  m-2 items-center"><svg
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-7 mr-4 hover:animate-bounce h-10">
+                    <a href="mailto:willypericlesfoumeouamba@gmail.com"
+                        class="flex hover:opacity-70  m-2 items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-7 mr-4 hover:animate-bounce h-10">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>

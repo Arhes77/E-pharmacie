@@ -10,7 +10,7 @@
 
             <div>
                 <label for="descri">description</label>
-                <input type="text" name="descri_prod" id="descri">
+                <textarea name="descri_prod" id="descri" cols="30" rows="10" ></textarea>
             </div>
             <div>
                 <label for="code">code produit</label>

@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     @vite('resources/css/app.css')
@@ -25,7 +26,7 @@ darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
     <div -bind:class="{'dark' : darkMode === true}">
         <header
-            class="block sticky dark:relative bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="block sticky bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
@@ -71,22 +72,22 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     </button>
                                 </x-slot>
 
-                                <x-slot name="content">                
-                                       <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                <x-slot name="content">
+                                    <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                                         href="/admin">Administration</a>
-                                     <x-dropdown-link :href="route('profile.edit')">
+                                    <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Profil') }}
-                                        </x-dropdown-link>
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
+                                    </x-dropdown-link>
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
 
-                                            <x-dropdown-link :href="route('logout')"
-                                                onclick="event.preventDefault();
+                                        <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                                {{ __('Log Out') }}
-                                            </x-dropdown-link>
-                                        </form>
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </form>
                                 </x-slot>
                             </x-dropdown>
                         </div>
@@ -180,7 +181,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </header>
 
         <!-- Page Content -->
-        <main class="dark:bg-gray-900 dark:text-gray-400">
+        <main class="dark:bg-neutral-600 dark:text-neutral-200">
             @yield('main')
         </main>
 
