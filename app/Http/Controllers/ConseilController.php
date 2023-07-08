@@ -14,8 +14,8 @@ class ConseilController extends Controller
      */
     public function index()
     {
-        $conseils = Conseil::paginate(10);
-        return view('conseil.index', compact('conseils'));
+        $conseil = Conseil::paginate(10);
+        return view('conseil.index', compact('conseil'));
     }
 
      /**

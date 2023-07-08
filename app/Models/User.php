@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasName;
@@ -15,7 +15,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Authenticatable implements HasName, HasAvatar
+
+class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -55,7 +56,7 @@ class User extends Authenticatable implements HasName, HasAvatar
    * Get the user's full name.
    *
    * @return string
-   */ 
+   */
     public function getFullNameAttribute()
     {
         return "{$this->nom} {$this->prenom}";
@@ -65,9 +66,7 @@ class User extends Authenticatable implements HasName, HasAvatar
         return $this->belongsTo(Status::class);
     }
 
-    public function personnel(): BelongsTo{
-        return $this->belongsTo(Personnel::class);
-    }
+
     public function commande(): HasMany {
         return $this->hasMany(Commande::class);
     }

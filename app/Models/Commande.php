@@ -22,8 +22,8 @@ class Commande extends Model
         return $this->hasMany(Produit::class);
     }
 
-    public function client(): BelongsTo {
-        return $this->belongsTo(Client::class);
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
 
     public function paiement(): HasOne {

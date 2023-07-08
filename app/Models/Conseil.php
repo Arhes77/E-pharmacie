@@ -13,7 +13,7 @@ class Conseil extends Model
     protected $fillable = ['theme', 'contenue'];
 
 
-    public function personnel(): BelongsTo {
-        return $this->belongsTo(Personnel::class);
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
 }

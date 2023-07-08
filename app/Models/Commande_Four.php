@@ -17,8 +17,8 @@ class Commande_Four extends Model
         return $this->hasMany(Produit::class);
     }
 
-    public function personnel(): BelongsTo {
-        return $this->belongTo(Personnel::class);
+    public function user(): BelongsTo {
+        return $this->belongTo(User::class);
     }
 
 
