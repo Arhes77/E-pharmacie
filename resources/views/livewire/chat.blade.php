@@ -1,9 +1,9 @@
 <div x-data="chat">
-    
+
         <div>
-          
+
         <div class="fixed w-full border border-b-2 mb-12">
-            
+
             <div class="flex items-center p-3 bg-gray-100">
                 <div class="flex-shrink-0 mr-3">
                     <img class="h-10 w-10 rounded-full" src="https://picsum.photos/200" alt="Group image">
@@ -15,10 +15,10 @@
                             @foreach ($usersOnline as $user)
                                 <li class="mr-2">
                                     {{ $user['name'] }},
-                                   
+
                                     @if ($userTyping === $user['id'])
                                         <span class="text-sm"> entrain d'ecrire...</span>
-                                        
+
                                     @endif
                                 </li>
                             @endforeach
@@ -40,16 +40,16 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-800 font-semibold">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                               </svg>
-                              
+
                         </div>
                     </div>
                     </div>
                 @endforeach
                 </div>
         </div>
-{{-- 
+{{--
         input pour l'envoie de message  --}}
-        <form class="mt-4 mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
+        <form class="mt-14 mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
 
 
             <div class="flex items-center p-3 bg-gray-100">
@@ -73,7 +73,7 @@
         </form>
 
     </div>
-    
+
     <script>
         window.addEventListener("alpine:init", () => {
             Alpine.data("chat", () => ({
