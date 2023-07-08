@@ -44,7 +44,7 @@
     </form>
 
     <br>
-    <form class="mt-5" action="{{ route('categorie.store',[1]) }}" method="post" enctype="multipart/form-data">
+    <form class="mt-5" action="{{ route('categorie.store',[2]) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <div>

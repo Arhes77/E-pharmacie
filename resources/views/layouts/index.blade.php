@@ -7,7 +7,7 @@
     <link rel="icon" href="{{ asset('images/logo/logo.png') }}" type="image">
 
 
-    <title>Epharma@237</title>
+    <title class="text-green-600">Epharma@237:Phamacie et Parapharmacie du 237(Cameroun)</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,14 +19,14 @@
     @livewireStyles
 </head>
 
-<body class="" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+<body class="" x-data="{ darkMode: true }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     localStorage.setItem('darkMode', JSON.stringify(true));
 }
 darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
     <div -bind:class="{'dark' : darkMode === true}">
         <header
-            class="block sticky bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="block sticky z-30 bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
@@ -162,13 +162,13 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             {{-- navigation --}}
             <div class="mt-0 dark:text-white">
                 <nav class="pt-5 w-full  flex flex-row">
-                    <x-responsive-nav-link :href="route('produit.index')" class="hover:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index',[1])" class="focus:bg-blue-600">
                         {{ __('Medicaments') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('produit.index',[2])" class="focus:bg-blue-600">
                         {{ __('Parapharmacie') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('produit.index',[3])" class="focus:bg-blue-600">
                         {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>

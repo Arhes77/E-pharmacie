@@ -20,12 +20,10 @@ class ProduitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($famille)
     {
-        $prod=Produit::all();
-        $cat = Categorie::all();
-        
-        return view('Produit.show', compact('prod','cat'));
+        $cat = Categorie::with('produits')->where('famille_id',$famille)->get();
+        return view('Produit.show', compact('cat'));
     }
 
     /**
@@ -54,19 +52,10 @@ class ProduitController extends Controller
                 'nom_prod' => ['required','max:255'],
                 'descri_prod' => ['required','string' , 'min:10'],
                 'code_prod' => ['required','string'],
-                'prix_prod' => ['required'],
-               
-                'url_prod' => ['required','image'],
-               
+                'prix_prod' => ['required'],               
+                'url_prod' => ['required','image'],               
                 'qteS_prod' => ['required','integer'],
-
-            ]);
-
-           
-
-           
-
-            
+            ]);         
 
 
             // $extension=substr(strrchr($request->url_prod,'.'),1);
@@ -74,9 +63,6 @@ class ProduitController extends Controller
         // renommer le fichier avant de le stocker par la suite
 
         $filename= 'Produit'.time().'.'. $request->url_prod->extension();
-        
-        
-       
       
 
        $path= $request->url_prod->storeAs(
