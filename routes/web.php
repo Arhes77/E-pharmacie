@@ -17,6 +17,7 @@ use App\Http\Controllers\MessagePersController;
 use App\Http\Controllers\ReponsePersController;
 use App\Http\Controllers\MessageForumController;
 use App\Http\Controllers\ReponseForumController;
+use App\Http\controllers\StripePaymentController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
@@ -148,6 +149,12 @@ Route::get('/localisation', function () {
 Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index');
     //afficher le formullaire de paiement
 Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show');
+
+//route pour le paiement
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
+});
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {

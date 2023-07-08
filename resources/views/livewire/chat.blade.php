@@ -49,7 +49,7 @@
         </div>
 {{-- 
         input pour l'envoie de message  --}}
-        <form class="mt-4 mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
+        <form class="mt-12 mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
 
 
             <div class="flex items-center p-3 bg-gray-100">
