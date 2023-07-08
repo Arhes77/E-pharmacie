@@ -4,16 +4,18 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use Filament\Models\Contracts\HasName;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\HasName;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Authenticatable implements HasName
+class User extends Authenticatable implements HasName, HasAvatar
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -35,6 +37,14 @@ class User extends Authenticatable implements HasName
         'statut_id',
         'password',
     ];
+
+    
+    // ...
+ 
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->profil;
+    }
 
     public function getFilamentName(): string
     {
@@ -62,7 +72,7 @@ class User extends Authenticatable implements HasName
         return $this->hasMany(Commande::class);
     }
 
-    public function messageForum(): HasMany {
+    public function messageForums(): HasMany {
         return $this->hasMany(MessageForum::class);
     }
 

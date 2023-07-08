@@ -5,6 +5,10 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+
+    'filament' => [
+        'dark_mode' => true,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -166,7 +170,7 @@ return [
         Darryldecode\Cart\CartServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
@@ -188,3 +192,4 @@ return [
     ])->toArray(),
 
 ];
+

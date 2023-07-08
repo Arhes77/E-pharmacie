@@ -1,4 +1,4 @@
-<div x-data="{ open: false }"  @mouseover="open = true"
+<div x-data="{ open: false }"  @mouseover="open = true" @click.away="open= false"
     class="flex my-auto mx-auto mr-1">
     <div class="grid">
         <x-primary-button wire:click="listerPanier">
@@ -91,9 +91,14 @@
                         </label><br>
                         <label class="" for="livraison"> Frais livraison:  2 000 fcfa</label><br><br>
                         <label class="" for="TOTAL"> TOTAL : <span class="font-extrabold text-xl">{{ $totalProduit + 2000 }} </span></label><br>
+                        <form action="{{route('commande.index')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="prix" value="{{$totalProduit}}">
+                            <input type="hidden" name="panier" value="{{$message}}">
                         <button
                             class="inline-flex items-center  px-auto py-2 bg-green-500 border border-blue-300 rounded-md font-semibold text-2xl text-white mr-2  tracking-widest hover:bg-green-700 focus:bg-black uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500
                             ">Commander</button>
+                        </form>
 
                     </div>
                 </div>
