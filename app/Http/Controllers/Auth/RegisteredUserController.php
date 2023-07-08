@@ -56,10 +56,11 @@ class RegisteredUserController extends Controller
             'sexe' => $request->sexe,
             'profil' => $path,
             'birthdate' => $request->birthdate,
-            'qualification' => $request->qualification,
+            //'qualification' => $request->qualification,
             'password' => Hash::make($request->password),
         ]);
 
+    
         event(new Registered($user));
         $user->notify(new UserRegisterNotification($user));
 

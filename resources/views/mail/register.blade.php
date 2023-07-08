@@ -9,7 +9,8 @@
 <body>
 
     <div>
-        Hello ! {{$user->nom}}  nous vous remercions d'avoir creer un compte sur notre plate forme 
+        Hello ! {{$user->nom}}  nous vous remercions d'avoir creer un compte sur notre plate forme <br>
+        <center> E-PHARMA@237</center>
     </div>
 </body>
 </html>

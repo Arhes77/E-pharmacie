@@ -27,7 +27,7 @@ class CategorieResource extends Resource
                 Forms\Components\TextInput::make('nom_cat')->required(),
                 Forms\Components\TextInput::make('descri_cat')->required(),
                 Forms\Components\TextInput::make('famille_id')->required(),
-                
+
             ]);
     }
 
@@ -40,7 +40,7 @@ class CategorieResource extends Resource
                 Tables\Columns\TextColumn::make('nom_cat'),
             Tables\Columns\TextColumn::make('descri_cat'),
             Tables\Columns\TextColumn::make('famille_id'),
-            
+
 
             ])
             ->filters([
@@ -54,14 +54,14 @@ class CategorieResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -69,5 +69,5 @@ class CategorieResource extends Resource
             'create' => Pages\CreateCategorie::route('/create'),
             'edit' => Pages\EditCategorie::route('/{record}/edit'),
         ];
-    }    
+    }
 }
