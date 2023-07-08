@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
@@ -56,10 +56,11 @@ class RegisteredUserController extends Controller
             'sexe' => $request->sexe,
             'profil' => $path,
             'birthdate' => $request->birthdate,
-            'qualification' => $request->qualification,
+            //'qualification' => $request->qualification,
             'password' => Hash::make($request->password),
         ]);
 
+    
         event(new Registered($user));
         $user->notify(new UserRegisterNotification($user));
 

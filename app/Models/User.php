@@ -4,13 +4,15 @@ namespace App\Models;
 
  use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\HasName;
+use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, HasName
 
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -33,6 +35,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'statut_id',
         'password',
     ];
+
 
     public function getFilamentName(): string
     {
