@@ -23,6 +23,7 @@ class PanierProduit extends Component
       $this->message= \Cart::session($userID)->getContent();
         return view('livewire.panier-produit');
     }
+
   public function setPanierMessage($items){
     // $this->panier=$items;
     // $end=end($this->panier);

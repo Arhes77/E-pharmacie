@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
+use App\Broadcasting\ChatChannel;
+ 
+Broadcast::channel('chat-room', ChatChannel::class);
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;

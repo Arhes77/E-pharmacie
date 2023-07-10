@@ -1,19 +1,8 @@
-<div class="relative" data-te-dropdown-position="dropstart">
-    <button
-        class="flex items-center whitespace-nowrap rounded bg-green-700 pb-2 pl-4 pr-6 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-        type="button" id="dropdownMenuButton1s" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init
-        data-te-ripple-color="light"   data-te-collapse-init
-        data-te-target="#collapseExample"
-        aria-expanded="false"
-        aria-controls="collapseExample">
-        <span class="mr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                <path fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd" />
-            </svg>
-        </span>
-        <div class="flex items-center">
+<div x-data="{ open: false }"  @mouseover="open = true" @click.away="open= false"
+    class="flex my-auto mx-auto mr-1">
+    <div class="grid">
+        <x-primary-button wire:click="listerPanier">
+            <div class="flex items-center">
             <svg @click="open= !open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor" class="w-9 h-7 hover:open="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -100,12 +89,16 @@
                         <label class="text-emerald-600" for="total"> TOTAL Produits:
                             <span class="font-extrabold text-xl"> {{ $totalProduit }}</span>
                         </label><br>
-                        <label class="" for="livraison"> Frais livraison: 2 000 fcfa</label><br><br>
-                        <label class="" for="TOTAL"> TOTAL : <span
-                                class="font-extrabold text-xl">{{ $totalProduit + 2000 }} </span></label><br>
-                        <a href="/"
+                        <label class="" for="livraison"> Frais livraison:  2 000 fcfa</label><br><br>
+                        <label class="" for="TOTAL"> TOTAL : <span class="font-extrabold text-xl">{{ $totalProduit + 2000 }} </span></label><br>
+                        <form action="{{route('commande.index')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="prix" value="{{$totalProduit}}">
+                            <input type="hidden" name="panier" value="{{$message}}">
+                        <button
                             class="inline-flex items-center  px-auto py-2 bg-green-500 border border-blue-300 rounded-md font-semibold text-2xl text-white mr-2  tracking-widest hover:bg-green-700 focus:bg-black uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500
-                            ">Commander</a>
+                            ">Commander</button>
+                        </form>
 
                     </div>
                 </div>
