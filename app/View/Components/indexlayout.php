@@ -21,6 +21,6 @@ class indexlayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.indexlayout');
+        return view('layouts.index');
     }
 }

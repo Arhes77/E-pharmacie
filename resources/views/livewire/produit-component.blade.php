@@ -44,12 +44,12 @@
                 </div>
 
                 <!-- Modal -->
-                <div data-te-modal-init
+                <div
                     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
                     id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableLabel"
                     aria-hidden="true">
                     <div data-te-modal-dialog-ref
-                        class="pointer-events-none relative h-full w-full translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-4 min-[576px]:h-full min-[576px]:max-w-[900px]">
+                        class="pointer-events-none relative h-full w-full translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-2 min-[576px]:h-full min-[576px]:max-w-[900px]">
                         <div
                             class="pointer-events-auto relative flex h-[100%] w-full flex-col overflow-hidden rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
                             <div

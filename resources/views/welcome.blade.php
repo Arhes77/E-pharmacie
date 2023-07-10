@@ -162,32 +162,32 @@
         <div class="font-bold my-3 uppercase">
             <h1>Nos conseils <b>sante</b> </h1>
         </div>
-        <div class="flex flex-row-2 w-fit mx-5 my-3">
+        <div class="flex flex-row-2 w-fit lg:mx-5 md:m-auto lg:my-3">
             <div class="bg-cover flex-auto overflow-y-scroll h-96 w-1/2 rounded-md mx-auto py-8 text-left"
                 style="background-image: url('/images/cover/fond.jpg')">
                 <div class="mx-1.5 mb-auto">
-                    <h1 class="text-blue-600 text-4xl">Conseils</h1>
+                    <h1 class="text-blue-600 md:text-2xl lg:text-4xl">Conseils</h1>
                     <ul class="list-disc list-inside mt-4 text-center">
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Comment bien choisir son
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Comment bien choisir son
                                 soin minceur </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Douleur musculaire </a>
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Douleur musculaire </a>
                         </li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Quelle lyposaine choisir
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Quelle lyposaine choisir
                                 ??? </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Ibuprofene : 8
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Ibuprofene : 8
                                 precautions a prendre </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a href="#"> Besoin d'aide pour
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Besoin d'aide pour
                                 selectioner un produit ??? </a></li>
                     </ul>
                 </div>
             </div>
-            <div class="ml-5 mx-5 rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
+            <div class="lg:ml-5 lg:mx-5 md:m-auto rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
                 <div class="mx-1.5 my-1.5   pt-8 h-auto ">
-                    <h1 class="text-blue-600 text-center text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser
+                    <h1 class="text-blue-600 text-center md:text-xl lg:text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser
                         ???<br></h1>
                     <p>Nos pharmaciens sont disponible 24/24 pour vous alors n'hesitez pas a nous contactez
-                        dans le <b class="text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
-                        <b class="text-xl text-blue-800">email</b>.
+                        dans le <b class="md:text-xs lg:text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
+                        <b class="md:text-xs lg:text-xl text-blue-800">email</b>.
                     </p>
                 </div>
                 <div class="bg-orange-500 h-1/2 mt-2.5 rounded-b-md text-white w-full bg-center flex flex-col">
@@ -221,7 +221,7 @@
 
             </div>
         </div>
-        <div class="font-bold flex text-4xl my-3">
+        <div class="font-bold flex md:text-2xl lg:text-4xl my-3">
             <h1> <i class="text-blue-600">Pharma237</i> : Pharmacie en ligne ET Parapharmacie </h1>
         </div>
         <div class="flex flex-col text-justify  w-fit mx-5 my-3 items-center">
@@ -259,7 +259,7 @@
                 </p>
             </div>
 
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Une pharmacie en ligne qui vous permet un large choix de
                     médicaments
                     pour toute la famille</h3>
@@ -289,7 +289,7 @@
                     lecteurs de glycémie dans le cadre d’un diabète ou encore des tests de grossesse.
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Une pharmacie en ligne qui vous permet un large choix de
                     médicaments
                     pour toute la famille</h3>
@@ -319,7 +319,7 @@
                     lecteurs de glycémie dans le cadre d’un diabète ou encore des tests de grossesse
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Les plus grandes marques de parapharmacie, matériel médical,
                     produits
                     vétérinaires en ligne</h3>
@@ -339,7 +339,7 @@
                     renseignés dans les fiches des produits orthopédiques.
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class="w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">L’engagement de nos pharmaciens à vos côtés</h3>
                 <i class="text-xl my-2">L’expertise de nos pharmaciens et leurs conseils</i><br>
                 <p>Nous avons à cœur de satisfaire toutes les demandes adaptées à tous les âges. Les jeunes parents
@@ -403,7 +403,7 @@
                     Oenobiol - Anaca 3 - Parodontax</p>
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <i class="text-xl my-2">Les Tops Produits dans votre pharmacie en ligne :</i><br>
                 <p>Notre pharmacie en ligne propose également un large choix de matériel médical : vous trouverez, en ligne
                     sur
@@ -416,7 +416,7 @@
                     masques - La Rosée - Lazartigue - NHCO</p>
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-red-400">Comment être sûr d’acheter mes médicaments auprès d’une pharmacie en
                     ligne ?</h3>
                 <i class="text-xl my-2">Les risques liés à la contrefaçon des médicaments et aux sites obscurs</i><br>

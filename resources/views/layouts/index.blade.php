@@ -26,7 +26,7 @@ darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
     <div -bind:class="{'dark' : darkMode === true}">
         <header
-            class="block sticky z-30 bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="block lg:sticky z-30 bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
@@ -49,29 +49,22 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="ml-auto items-center flex">
                     @if (Auth::user())
                         <!-- Settings Dropdown -->
-                        <div class="flex mx-2">
+                        <div class="flex">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
-                                    <button
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 fill-blue-500 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                    <div data-te-chip-init data-te-ripple-init
+                                        class="[word-wrap: break-word] my-[5px] mr-4 flex h-[42px] cursor-pointer items-center justify-between rounded-[18px] bg-gray-100 px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#4f4f4f] shadow-none transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-white  dark:bg-neutral-600 dark:text-neutral-200">
+                                        <img class="my-0 -ml-[10px] mr-[8px] h-[inherit] w-[inherit] rounded-[90%]"
+                                            src="{{ Storage::url(Auth::user()->profil) }}" alt="Contact Person" />
+                                        {{ Auth::user()->nom }}
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
                                         </svg>
-                                        <div>{{ Auth::user()->nom }}</div>
-
-                                        <div class="ml-1">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </button>
+                                    </div>
                                 </x-slot>
-
                                 <x-slot name="content">
                                     <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                                         href="/admin">Administration</a>
@@ -81,7 +74,6 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-
                                         <x-dropdown-link :href="route('logout')"
                                             onclick="event.preventDefault();
                                                             this.closest('form').submit();">
@@ -107,7 +99,6 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                         </div>
                     @endif
-
                     {{-- Dark theme a implementer --}}
                     <div class="mr-2">
                         <button id="theme-toggle" type="button"
@@ -162,13 +153,13 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             {{-- navigation --}}
             <div class="mt-0 dark:text-white">
                 <nav class="pt-5 w-full  flex flex-row">
-                    <x-responsive-nav-link :href="route('produit.index',[1])" class="focus:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index', [1])" class="focus:bg-blue-600">
                         {{ __('Medicaments') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('produit.index',[2])" class="focus:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index', [2])" class="focus:bg-blue-600">
                         {{ __('Parapharmacie') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('produit.index',[3])" class="focus:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index', [3])" class="focus:bg-blue-600">
                         {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>

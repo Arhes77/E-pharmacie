@@ -84,7 +84,7 @@ class ProduitController extends Controller
          
 
              
-return redirect(route('produit.index'));
+return redirect(route('produit.index','1'));
     
     }
 
