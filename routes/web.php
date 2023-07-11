@@ -145,7 +145,7 @@ Route::get('/localisation', function () {
     return view('localisation.localisation');
 });
 
-//route pour la commande 
+//route pour la commande
 Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index');
     //afficher le formullaire de paiement
 Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show');
@@ -155,6 +155,9 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
+
+//route pour la generation de la facture
+Route::get('/facture', [FactureControlleur::class, '__invoke']);
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {
