@@ -152,7 +152,7 @@ Route::post('/commande/show',[CommandeController::class,'show'])->name('commande
 
 //route pour le paiement
 Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe', 'stripe');
+    Route::post('stripe/test', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
 

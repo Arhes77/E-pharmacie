@@ -35,7 +35,9 @@ class StripePaymentController extends Controller
         ]);
       
         Session::flash('success', 'Payment successful!');
+
+        dd($request->panier);
               
-        return back();
+        return redirect(route('facture'));
     }
 }

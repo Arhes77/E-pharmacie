@@ -9,13 +9,13 @@
 
             je veux etre livrer</button>
         <p class="text-justify font-semibold my-5 text-gray-700"> si vous choisissez ce mode alors vous seriez livrer et les
-            fraie de livraison s'y appliquerons</p>
+            frais de livraison s'y appliqueront</p>
 
         <button
             class="flex items-center px-2 py-2 bg-orange-500 border border-blue-300 rounded-md font-semibold text-xs text-white tracking-widest hover:bg-orange-500 focus:bg-orange-900 uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500"> 
                
             montant 
-            <span class="font-extrabold text-2xl ml-5">{{ $request->prix + 2000 }}</span></button>
+            <span class="font-extrabold text-2xl ml-5">{{ $prix + 2000 }}</span></button>
 
     </div>
 
@@ -29,23 +29,26 @@
             <div x-show="ouvre">
                 <h3>definissez un moyen de payement</h3>
                 <form action="{{ route('commande.show') }}" method="POST">
+                    @csrf
                     <select name="mode" id="">
                         <option value="mobile">payement mobile</option>
                         <option value="carte">solution carte banquaire</option>
                     </select>
+                    <input type="hidden" name="prix" value="{{$prix}}">
+                    <input type="hidden" name="panier" value="{{$panier}}">
                     <x-primary-button>
                         poursuivre
                     </x-primary-button>
                 </form>
 
             </div>
-            <p class="text-justify font-semibold my-5 text-gray-700"> si vous choisissez ce mode alors aucun fraie s'y
+            <p class="text-justify font-semibold my-5 text-gray-700"> si vous choisissez ce mode alors aucun frais s'y
                 appliquera </p>
 
             <button
                 class="flex items-center px-2 py-2 bg-orange-500 border border-blue-300 rounded-md font-semibold text-xs text-white tracking-widest hover:bg-orange-500 focus:bg-orange-900 uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500 ">
                 
-                montant <span class="font-extrabold text-2xl ml-5">{{ $request->prix }}</span></button>
+                montant <span class="font-extrabold text-2xl ml-5">{{ $prix }}</span></button>
         </div>
 
 

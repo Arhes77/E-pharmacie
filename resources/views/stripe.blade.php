@@ -39,7 +39,8 @@
                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                             id="payment-form">
                         @csrf
-    
+                        <input type="hidden" name="panier" value="{{$panier}}">
+                        <input type="hidden" name="prix" value="{{$prix}}">
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name on Card</label> 
@@ -70,13 +71,13 @@
     
                         <div class='form-row row'>
                             <div class='col-md-12 error form-group hide'>
-                                <div class='alert-danger alert'>Please correct the errors and try again.</div>
+                                <div class='alert-danger alert'>s'il vous plait corriger l'erreur et essayer de nouveau .</div>
                             </div>
                         </div>
     
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Payer maintenant ({{$prix}} fcfa)</button>
                             </div>
                         </div>
                             
