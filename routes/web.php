@@ -146,13 +146,13 @@ Route::get('/localisation', function () {
 });
 
 //route pour la commande 
-Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index');
+Route::post('/commande/formulaire',[CommandeController::class,'index'])->name('commande.index');
     //afficher le formullaire de paiement
 Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show');
 
 //route pour le paiement
 Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe', 'stripe');
+    Route::post('stripe/test', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
 
