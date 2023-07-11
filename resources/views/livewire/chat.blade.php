@@ -1,6 +1,6 @@
 <div x-data="chat">
     
-        <div>
+        <div class="">
           
         <div class="fixed w-full border border-b-2 mb-12">
             
@@ -16,11 +16,12 @@
                                 <li class="mr-2">
                                     {{ $user['name'] }},
                                    
-                                    @if ($userTyping === $user['id'])
-                                        <span class="text-sm"> entrain d'ecrire...</span>
-                                        
-                                    @endif
+                                   
                                 </li>
+                                @if ($userTyping === $user['id'])
+                                <span class="text-sm"> entrain d'ecrire...</span>
+                                
+                            @endif
                             @endforeach
                         </ul>
                     </div>
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="scroll-my-96 ">
             <div class="ml-12 space-y-4 border ">
                 @foreach ($messages->reverse() as $message)
                     <div class="max-w-lg p-3 my-3 rounded-lg  {{ $message->user->nom == Auth::user()->nom ? 'bg-green-100 flex ml-auto mr-12' : 'bg-slate-200 flex mr-auto ml-12' }}">
@@ -37,9 +38,13 @@
 
                         <p class="text-sm text-gray-700"> {!! $message->conten_smsF !!}</p>
                         <div class="text-right text-xs text-gray-500 mt-2  items-end ">{{ $message->created_at->diffForHumans() }}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-800 font-semibold">
+                            @if ($message->user->nom == Auth::user()->nom)
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500 inline-flex">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                               </svg>
+                                
+                            @endif
+                            
                               
                         </div>
                     </div>
@@ -49,7 +54,7 @@
         </div>
 {{-- 
         input pour l'envoie de message  --}}
-        <form class="mt-12 mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
+        <form class="mt-auto mb-8 ml-12 space-x-2 " wire:submit.prevent="sendMessage">
 
 
             <div class="flex items-center p-3 bg-gray-100">
