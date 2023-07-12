@@ -20,7 +20,7 @@ export default {
         },
     },
     daisyui: {
-        themes: [],
+        themes: ["cupcake",],
     },
 
     plugins: [forms,require("tw-elements/dist/plugin.cjs"),require("daisyui")],

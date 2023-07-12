@@ -1,5 +1,5 @@
 <div x-data="chat" class="flex flex-col">
-    <div class="flex flex-col w-full items-center p-3 bg-gray-100">
+    <div class="flex flex-col sticky w-full items-center p-3 bg-gray-100">
         <div class="self-center">
             <div class="text-lg font-semibold text-gray-700 text-center flex"><img class="h-10 w-10 mr-3 rounded-full"
                     src="https://picsum.photos/200" alt="Group image">
@@ -33,7 +33,6 @@
                     </div>
                     <div class="chat-header">
                         {{ $message->user->nom == Auth::user()->nom ? 'vous' : $message->user->nom }}
-                        <time class="text-xs opacity-50">12:45</time>
                     </div>
                     <div class="chat-bubble">{!! $message->conten_smsF !!}</div>
                     <div class="chat-footer opacity-50 flex flex-row">
@@ -53,7 +52,6 @@
                     </div>
                     <div class="chat-header">
                         {{ $message->user->nom == Auth::user()->nom ? 'vous' : $message->user->nom }}
-                        <time class="text-xs opacity-50"></time>
                     </div>
                     <div class="chat-bubble">{!! $message->conten_smsF !!}</div>
                     <div class="chat-footer opacity-50 flex flex-row">
@@ -69,11 +67,11 @@
     </div>
     {{-- 
         input pour l'envoie de message  --}}
-    <form class="mt-12 sticky mb-8 ml-12 space-x-2" wire:submit.prevent="sendMessage">
-        <div class="flex items-center p-3 bg-gray-100">
+    <form class="mt-12 mb-8 mx-12 space-x-2" wire:submit.prevent="sendMessage">
+        <div class="flex items-center p-3">
             <div class="flex-grow mr-3">
-                <input class="w-full rounded-full py-2 px-3 border border-gray-300 text-sm text-gray-700" type="text"
-                    placeholder="ecris un message" wire:model="message" />
+                <input class="w-full  rounded-full py-2 px-3 border border-gray-300 text-sm text-gray-700" type="text"
+                    placeholder="ecrire un message" wire:model="message" />
             </div>
             <button class="flex-shrink-0 bg-green-500 hover:bg-green-600 text-white rounded-full p-2" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

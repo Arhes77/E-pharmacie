@@ -22,7 +22,7 @@
 <body>
     <div>
         <header
-            class="block lg:sticky z-30 bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="block lg:sticky z-30 bg-gray-100 dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}

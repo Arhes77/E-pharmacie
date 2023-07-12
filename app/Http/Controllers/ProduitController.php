@@ -26,6 +26,11 @@ class ProduitController extends Controller
         return view('Produit.show', compact('cat'));
     }
 
+    public function details($nom)
+    {
+        $prod = Produit::where('nom_prod',$nom)->get();
+        return view('Produit.detailsProd', compact('prod'));
+    }
     /**
      * Show the form for creating a new resource.
      *
