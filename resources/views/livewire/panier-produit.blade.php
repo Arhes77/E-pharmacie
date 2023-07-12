@@ -1,22 +1,13 @@
-<div x-data="{ open: false }"  @mouseover="open = true" @click.away="open= false"
-    class="flex my-auto mx-auto mr-1">
-    <div class="grid">
-        <x-primary-button wire:click="listerPanier">
-            <div class="flex items-center">
-            <svg @click="open= !open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke-width="1.5" stroke="currentColor" class="w-9 h-7 hover:open="true">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
-
-            <h1 class="text-center"> MON PANIER</h1>
-            <div class="rounded-full mt-5 bg-gray-900 text-2xl text-white mr-2 ">{{ count($message) }}</div>
-
-        </div>
-    </button>
-    <div class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-         data-te-dropdown-menu-ref id="collapseExample" data-te-collapse-item>
-        <div data-te-dropdown-item class="block w-full dark:text-gray-200 relative">
+<div class="dropdown dropdown-end">
+    <label tabindex="0" class="btn text-white border-none bg-green-500 flex flex-row overflow-hidden m-1"> <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:w-10 lg:h-9">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        </svg>
+        <h5>Panier</h5> <label class="w-7 h-5 text-black text-xl text-center pb-1 rounded-xl bg-white">{{ count($message) }}</label>
+    </label>
+    <div tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-fit">
+        <div class="w-full dark:text-gray-200">
             @if (count($message) > 0)
                 <div class="py-9 text-center ">
                     <table class="table-fixed ">
@@ -24,7 +15,6 @@
                             <tr class="bg-green-500 h-16">
                                 <th class="uppercase text-2xl text-white mr-2">Produits</th>
                                 <th class="uppercase text-2xl text-white mr-2">Prix-Unitaire</th>
-                                <th class="uppercase text-2xl text-white mr-2">Disp</th>
                                 <th class="uppercase text-2xl text-white mr-2">Notice</th>
                                 <th class="uppercase text-2xl text-white mr-2">Qte</th>
                                 <th class="uppercase text-3xl text-white">Total</th>
@@ -35,7 +25,6 @@
                                 <tr class="border-b border-gray-400">
                                     <td>{{ $item['name'] }}</td>
                                     <td>{{ $item['price'] }}</td>
-                                    <td>En Stock</td>
                                     <td><a href="#">notice</a></td>
                                     <td class="items-center flex flex-rows-1 ">
                                         <button
@@ -60,10 +49,11 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <span>{{ $totalPrice = $item['price'] * $item['quantity'] }} fcfa</span><a
-                                            class="ml-8" href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                stroke="currentColor" class="w-6 h-6 border-1 rounded-full"
+                                        <span>{{ $totalPrice = $item['price'] * $item['quantity'] }}
+                                            fcfa</span><a class="ml-8" href="#"><svg
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor"
+                                                class="w-6 h-6 border-1 rounded-full"
                                                 wire:click="retirerPanier({{ $item['id'] }},{{ $index }})"
                                                 wire:init="totalPriceProduit({{ $totalPrice }})">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -79,25 +69,26 @@
                 </div>
                 <div class="grid grid-cols py-9 ml-auto mr-auto">
                     <div class="box  h-100 w-120">
-                        <button
-                            class="inline-flex items-center  px-auto py-2 bg-gray-800 border border-blue-300 rounded-md font-semibold   mr-2 text-white tracking-widest hover:bg-gray-900 focus:bg-black uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500
-                        ">Continuer
-                            l'ajout</button>
+                        <button class="btn">
+                            Continuer l'ajout
+                        </button>
                     </div>
 
                     <div class="box-content h-64 w-69 p-4 border-3">
                         <label class="text-emerald-600" for="total"> TOTAL Produits:
                             <span class="font-extrabold text-xl"> {{ $totalProduit }}</span>
                         </label><br>
-                        <label class="" for="livraison"> Frais livraison:  2 000 fcfa</label><br><br>
-                        <label class="" for="TOTAL"> TOTAL : <span class="font-extrabold text-xl">{{ $totalProduit + 2000 }} </span></label><br>
-                        <form action="{{route('commande.index')}}" method="POST">
+                        <label class="" for="livraison"> Frais livraison: 2 000 fcfa</label><br><br>
+                        <label class="" for="TOTAL"> TOTAL : <span
+                                class="font-extrabold text-xl">{{ $totalProduit + 2000 }} </span></label><br>
+                        <form action="{{ route('commande.index') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="prix" value="{{$totalProduit}}">
-                            <input type="hidden" name="panier" value="{{$message}}">
-                        <button
-                            class="inline-flex items-center  px-auto py-2 bg-green-500 border border-blue-300 rounded-md font-semibold text-2xl text-white mr-2  tracking-widest hover:bg-green-700 focus:bg-black uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500
-                            ">Commander</button>
+                            <input type="hidden" name="prix" value="{{ $totalProduit }}">
+                            <input type="hidden" name="panier" value="{{ $message }}">
+                            <button
+                                class="inline-flex items-center  px-auto py-2 bg-green-500 border border-blue-300 rounded-md font-semibold text-2xl text-white mr-2  tracking-widest hover:bg-green-700 focus:bg-black uppercase  focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                Commander
+                            </button>
                         </form>
 
                     </div>

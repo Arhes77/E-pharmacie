@@ -44,8 +44,7 @@
                 </div>
 
                 <!-- Modal -->
-                <div
-                    class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                <div class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
                     id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableLabel"
                     aria-hidden="true">
                     <div data-te-modal-dialog-ref
@@ -97,16 +96,16 @@
             @else
             @break
         @endif
-        @empty
+    @empty
         <h4 class="w-3/4 my-3 self-center text-red-600 text-xl">Acun Produits pour le moment dans cette
             Catégories!!!</h4>
-        @endforelse
-    </div>
-    <div class="w-fit my-3 self-center">
-        <a href="{{ route('categorie.show', [$p->id]) }}"
-            class="lg:px-7 md:text-xl text-xs py-2 rounded-xl dark:bg-blue-500   text-white bg-gray-700"> Voir tous les
-            produits relatif à <u> {{ $p->nom_cat }}</u></a>
-    </div>
+    @endforelse
+</div>
+<div class="w-fit my-3 self-center">
+    <a href="{{ route('categorie.show', [$p->id]) }}"
+        class="lg:px-7 md:text-xl text-xs py-2 rounded-xl dark:bg-blue-500   text-white bg-gray-700"> Voir tous les
+        produits relatif à <u> {{ $p->nom_cat }}</u></a>
+</div>
 @else
 <div class="flex flex-row flex-wrap w-full">
     @forelse ($p->produits as $i => $prod)
@@ -148,7 +147,21 @@
                     </svg>Ajouter
                 </button>
             @endif
-        </div>
+            <!-- The button to open modal -->
+            <label for="my-modal" class="btn">open modal</label>
+
+           
+        </div> <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+                    <p class="py-4 overflow-scroll">{{ $prod->descri_prod }}</p>
+                    <div class="modal-action">
+                        <label for="my-modal" class="btn">{{ $prod->nom_prod }}</label>
+                    </div>
+                </div>
+            </div>
 
         <!-- Modal -->
         <div data-te-modal-init

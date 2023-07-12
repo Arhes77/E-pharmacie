@@ -2,10 +2,10 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
-import {Carousel,Modal,Ripple,Dropdown,Chip,initTE,} from "tw-elements";
+import {Carousel,initTE} from "tw-elements";
 
 initTE({
-    Carousel,Modal,Ripple, Dropdown,Chip,
+    Carousel
 });
 
 

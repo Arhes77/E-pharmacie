@@ -160,10 +160,7 @@ Route::controller(StripePaymentController::class)->group(function(){
 Route::middleware('auth')->group(function () {
     Route::get('/chatForum', function () {
         return view('chat.forum');
-    });
-    });
-
-
-
+    })->name('chatforum');
+});
 
 require __DIR__.'/auth.php';

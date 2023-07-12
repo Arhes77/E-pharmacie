@@ -191,7 +191,7 @@
                     </p>
                 </div>
                 <div class="bg-orange-500 h-1/2 mt-2.5 rounded-b-md text-white w-full bg-center flex flex-col">
-                    <a href="#"class="flex m-2 hover:opacity-70   items-center"><svg
+                    <a href="{{route('chatforum')}}"class="flex m-2 hover:opacity-70   items-center"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 hover:animate-ping mr-4 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"

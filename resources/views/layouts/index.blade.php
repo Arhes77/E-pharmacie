@@ -19,12 +19,8 @@
     @livewireStyles
 </head>
 
-<body class="" x-data="{ darkMode: true }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    localStorage.setItem('darkMode', JSON.stringify(true));
-}
-darkMode = JSON.parse(localStorage.getItem('darkMode'));
-$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-    <div -bind:class="{'dark' : darkMode === true}">
+<body>
+    <div>
         <header
             class="block lg:sticky z-30 bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
@@ -101,51 +97,34 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                     @endif
                     {{-- Dark theme a implementer --}}
                     <div class="mr-2">
-                        <button id="theme-toggle" type="button"
-                            x-bind:class="darkMode ? 'bg-green-500' : 'bg-gray-200'" x-on:click="darkMode = !darkMode"
-                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            role="switch" aria-checked="false">
-                            <span class="sr-only">Dark mode toggle</span>
-                            <span x-bind:class="darkMode ? 'translate-x-5 bg-gray-700' : 'translate-x-0 bg-white'"
-                                class="pointer-events-none relative inline-block h-5 w-5 transform rounded-full shadow ring-0 transition duration-200 ease-in-out">
-                                <span
-                                    x-bind:class="darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200'"
-                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-                                    aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-gray-400"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                                    </svg>
-                                </span>
-                                <span
-                                    x-bind:class="darkMode ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
-                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-                                    aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                            </span>
-                        </button>
+                        <h6>Theme</h6>
+                        <label  class="swap swap-rotate">  
+                            <!-- this hidden checkbox controls the state -->
+                            <input id="theme-toggle" type="checkbox" class="invisible" />
+                            
+                            <!-- sun icon -->
+                            <svg class="swap-off fill-current w-10 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                            
+                            <!-- moon icon -->
+                            <svg class="swap-on text-green-500 fill-current w-10 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+                            
+                        </label>
                     </div>
                 </div>
             </div>
             {{-- Logo composant de recherche et pannier --}}
             <div class="flex mb-0 flex-row w-full ">
                 {{-- Logo --}}
-                <div class="flex w-1/4 py-2">
+                <div class="flex lg:w-1/4  py-2">
                     <x-application-logo />
                 </div>
                 {{-- composant de recherche --}}
-                <div class="py-auto self-center flex w-1/2">
+                <div class="py-auto self-center flex lg:w-1/2">
                     {{-- composants de reherche --}}
                     <livewire:search-produit />
                 </div>
                 {{-- composant du pannier --}}
-                <div class="flex w-1/4 m-5">
+                <div class="flex w-1/4 my-auto ml-1">
                     {{-- composants Pannier --}}
                     <livewire:panier-produit />
                 </div>
