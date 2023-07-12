@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-
 use Laravel\Sanctum\HasApiTokens;
+
 use Filament\Models\Contracts\HasName;
+use Illuminate\Support\Facades\Storage;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -44,7 +45,7 @@ class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
  
     public function getFilamentAvatarUrl(): ?string
     {
-        return $this->profil;
+        return Storage::url($this->profil);
     }
 
     public function getFilamentName(): string
