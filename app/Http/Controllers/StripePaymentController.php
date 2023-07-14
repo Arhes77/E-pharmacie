@@ -2,13 +2,15 @@
     
 namespace App\Http\Controllers;
 
-use App\Models\Article;
-use App\Models\Commande;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Darryldecode\Cart\Cart;
-use Session;
 use Stripe;
+use Session;
+use App\Models\Article;
+use App\Models\Produit;
+use App\Models\Commande;
+use Darryldecode\Cart\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
      
 class StripePaymentController extends Controller
 {
@@ -59,12 +61,20 @@ class StripePaymentController extends Controller
 
         foreach ($obj as  $item) {
             
-            $cmd->articles()->create([
+            $art=$cmd->articles()->create([
              'produit_id'=>  $item->id, 
              'qteA_art'=> $item->quantity,
             ]);
 
+            //decrementation de la quantite de produit en stock
+
+            
+           $qte=$item->quantity;
            
+        $product = Produit::find($item->id);
+        $product->update([
+            'qteS_prod' => DB::raw("\"qteS_prod\" -  $qte"),
+        ]);
            
         }
 
