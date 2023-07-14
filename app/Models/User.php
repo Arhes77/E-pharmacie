@@ -68,7 +68,7 @@ class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
     }
 
 
-    public function commande(): HasMany {
+    public function commandes(): HasMany {
         return $this->hasMany(Commande::class);
     }
 

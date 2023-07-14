@@ -1,8 +1,12 @@
 <?php
     
 namespace App\Http\Controllers;
-     
+
+use App\Models\Article;
+use App\Models\Commande;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Darryldecode\Cart\Cart;
 use Session;
 use Stripe;
      
@@ -36,8 +40,29 @@ class StripePaymentController extends Controller
       
         Session::flash('success', 'Payment successful!');
 
-        dd($request->panier);
-              
-        return redirect(route('facture'));
+        
+        $cmd=new Commande();
+
+        Auth::user()->commandes()->create([
+            'prixT_com'=>doubleval($request->prix),
+        
+        ]);
+
+
+        //creation des article de la commande 
+      
+      eval("\$panier = $request->panier;");
+       
+        foreach($panier as $item){
+        $cmd->articles()->create([
+            'produit_id'=>$item->id,
+            'qteA_art'=>$item->quantity,
+            
+        ]);
+    }
+    
+       
+        
+
     }
 }
