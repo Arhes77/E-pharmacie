@@ -24,14 +24,18 @@
     </thead>
         <tbody>
 
-            @foreach ($composante as $composante )
+            @foreach ($panier as $composante )
             <tr>
-            <td>{{$composante->nom}}</td>
-            <td>{{$composante->prix_unitaire}}</td>
-            <td>{{$composante->quantite}}</td>
-            <td>{{$composante->prix_unitaire * $composante->quantite}}</td>
-            </tr>
+                <td>{{$composante->name}}</td>
+                <td>{{$composante->price}}</td>
+                <td>{{$composante->quantity}}</td>
+                <td>{{$composante->price * $composante->quantity}}</td>
+                </tr>
             @endforeach
+            <tr>
+                <td>prix total:</td>
+                <td colspan="3">{{$montant}}</td>
+            </tr>
 
         </tbody>
    </table>

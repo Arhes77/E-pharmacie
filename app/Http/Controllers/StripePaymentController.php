@@ -1,11 +1,12 @@
 <?php
-    
+
 namespace App\Http\Controllers;
-     
-use Illuminate\Http\Request;
-use Session;
+
 use Stripe;
-     
+use Session;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class StripePaymentController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class StripePaymentController extends Controller
     {
         return view('stripe');
     }
-    
+
     /**
      * success response method.
      *
@@ -26,18 +27,32 @@ class StripePaymentController extends Controller
     public function stripePost(Request $request)
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-    
+
         Stripe\Charge::create ([
                 "amount" => 100 * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
-                "description" => "Test payment from LaravelTus.com." 
+                "description" => "Test payment from LaravelTus.com."
         ]);
-      
+
         Session::flash('success', 'Payment successful!');
 
-        dd($request->panier);
-              
-        return redirect(route('facture'));
+       // dd($request->panier);
+       $panier = $request->panier;
+       $montant = $request->prix;
+
+       //dd($panier);
+        return  view('facture.show', compact('panier', 'montant'));
+    }
+
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
+    {
+        $panier = $request->panier;
+        $montant = $request->prix;
+
+        return Pdf::loadView('facture.facture', compact('panier', 'montant'))->download('Facture.pdf');
     }
 }

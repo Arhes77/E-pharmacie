@@ -13,6 +13,10 @@ class FactureController extends Controller
     public function __invoke(Request $request)
     {
 
-        return Pdf::loadView('facture.factures', compact('composante'))->download('FACTURE.pdf');
+        return Pdf::loadView('facture.show', compact('composante'))->download('FACTURE.pdf');
+    }
+
+    public function create(){
+
     }
 }

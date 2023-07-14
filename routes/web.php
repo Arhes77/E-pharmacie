@@ -157,7 +157,7 @@ Route::controller(StripePaymentController::class)->group(function(){
 });
 
 //route pour la generation de la facture
-Route::get('/facture', [FactureControlleur::class, '__invoke']);
+Route::get('/facture', [StripePaymentController::class, '__invoke'])->name('facture');
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {

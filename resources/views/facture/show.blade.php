@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    <h2>votre paiement a ete effectuer avec succes merci pour votre fidelite</h2>
    <table class="table-auto">
     <thead>
         <tr aria-colspan="4"><h1>FACTURE</h1></tr>
@@ -24,16 +25,23 @@
     </thead>
         <tbody>
 
-            @foreach ($composante as $composante )
+            @foreach ($panier as $composante )
             <tr>
-            <td>{{$composante->nom}}</td>
-            <td>{{$composante->prix_unitaire}}</td>
-            <td>{{$composante->quantite}}</td>
-            <td>{{$composante->prix_unitaire * $composante->quantite}}</td>
+            <td>{{$composante->name}}</td>
+            <td>{{$composante->price}}</td>
+            <td>{{$composante->quantity}}</td>
+            <td>{{$composante->price * $composante->quantity}}</td>
             </tr>
             @endforeach
 
+            <tr>
+                <td>prix total:</td>
+                <td colspan="3">{{$montant}}</td>
+            </tr>
         </tbody>
+
    </table>
+
+   <a href="{{ route('facture') }}"> obtenir ma facture</a>
 </body>
 </html>
