@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\View as FacadesView;
 class ProduitController extends Controller
 {
     //
-    
-    //les methde de traitement 
+
+    //les methde de traitement
      /**
      * Display a listing of the resource.
      *
@@ -51,46 +51,46 @@ class ProduitController extends Controller
     public function store(Request $request)
 
     {
-        
-        
+
+
         $request->validate([
                 'nom_prod' => ['required','max:255'],
                 'descri_prod' => ['required','string' , 'min:10'],
                 'code_prod' => ['required','string'],
-                'prix_prod' => ['required'],               
-                'url_prod' => ['required','image'],               
+                'prix_prod' => ['required'],
+                'url_prod' => ['required','image'],
                 'qteS_prod' => ['required','integer'],
-            ]);         
+            ]);
 
 
             // $extension=substr(strrchr($request->url_prod,'.'),1);
-            
+
         // renommer le fichier avant de le stocker par la suite
 
         $filename= 'Produit'.time().'.'. $request->url_prod->extension();
-      
+
 
        $path= $request->url_prod->storeAs(
             'ProduitImage',
             $filename,
             'public'
         );
-       
+
        $categorie=Categorie::findOrfail($request->categorie_id);
         $prod =new Produit();
         $prod->nom_prod=$request->nom_prod;
         $prod->prix_prod=$request->prix_prod;
-        $prod->code_prod=$request->code_prod;        
+        $prod->code_prod=$request->code_prod;
         $prod->url_prod=$path;
         $prod->descri_prod=$request->descri_prod;
         $prod->qteS_prod=$request->qteS_prod;
         $categorie->produits()->save($prod);
 
-         
 
-             
+dd($prod);
+
 return redirect(route('produit.index','1'));
-    
+
     }
 
     /**
@@ -103,7 +103,7 @@ return redirect(route('produit.index','1'));
     {
         // dd($Produit->id);
         $produit=Produit::where('Produits_id','=',$Produit->id)->get();
-        
+
 
         return view('Produit.show',compact('produit'));
 
@@ -117,7 +117,7 @@ return redirect(route('produit.index','1'));
      */
     public function edit(Produit $Produit)
     {
-        
+
         $cats=Categorie::all();
         return view('Produit.update',compact('Produit','cats'));
     }
@@ -132,40 +132,40 @@ return redirect(route('produit.index','1'));
     public function update(Request $request, produit $produit)
     {
 
-        
+
         $request->validate([
             'nom_prod' => ['required','max:255'],
             'descri_prod' => ['required','string' , 'min:10'],
             'prix_prod' => ['required'],
-           
+
             'url_prod' => ['required','image'],
-           
+
             'qteS_prod' => ['required','integer'],
 
         ]);
 
-        
+
             // $extension=substr(strrchr($request->url_prod,'.'),1);
-            
+
         // renommer le fichier avant de le stocker par la suite
 
         $filename= 'Produit'.time().'.'. $request->url_prod->extension();
-        
-        
-       
-      
+
+
+
+
 
        $path= $request->url_prod->storeAs(
             'ProduitImage',
             $filename,
             'public'
         );
-       
+
        $categorie=Categorie::findOrfail($request->categorie_id);
         //modifier le produit recuperer dans les parametres
         $produit->nom_prod=$request->nom_prod;
         $produit->prix_prod=$request->prix_prod;
-        
+
         $produit->url_prod=$path;
         $produit->descri_prod=$request->descri_prod;
         $produit->qteS_prod=$request->qteS_prod;
@@ -173,7 +173,7 @@ return redirect(route('produit.index','1'));
 
 
         return redirect(route('produit.index'));
-        
+
     }
 
     /**

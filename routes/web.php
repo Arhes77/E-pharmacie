@@ -19,6 +19,7 @@ use App\Http\Controllers\MessageForumController;
 use App\Http\Controllers\ReponseForumController;
 use App\Http\controllers\StripePaymentController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\FactureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,8 +98,8 @@ Route::post('/categorie/store/{id_famille}',[CategorieController::class,'store']
 // pour les produit
 Route::get('/produit/create',[ProduitController::class,'create'])->name('produit.create');
 Route::post('/produit/store',[ProduitController::class,'store'])->name('produit.store');
-Route::get('/produit/index/{famille}',[ProduitController::class,'index'])->name('produit.index'); 
-Route::get('/produit/details/{nom}',[ProduitController::class,'details'])->name('produit.details'); 
+Route::get('/produit/index/{famille}',[ProduitController::class,'index'])->name('produit.index');
+Route::get('/produit/details/{nom}',[ProduitController::class,'details'])->name('produit.details');
 
 Route::post('/produit/update/{produit}',[ProduitController::class,'update'])->name('produit.update');
 Route::get('/produit/edit/{produit}',[ProduitController::class,'edit'])->name('produit.edit');
@@ -147,8 +148,8 @@ Route::get('/localisation', function () {
     return view('localisation.localisation');
 });
 
-//route pour la commande 
-Route::post('/commande/formulaire',[CommandeController::class,'index'])->name('commande.index');
+//route pour la commande
+Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index');
     //afficher le formullaire de paiement
 Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show');
 
@@ -157,6 +158,9 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::post('stripe/test', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
+
+//route pour la generation de la facture
+Route::post('/facture', [FactureController::class, '__invoke'])->name('facture');
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {
