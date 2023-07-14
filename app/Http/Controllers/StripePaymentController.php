@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Stripe;
+use App\Models\Article;
+use App\Models\Commande;
+use Illuminate\Support\Facades\Auth;
+use Darryldecode\Cart\Cart;
 use Session;
+use Stripe;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+
+use function PHPUnit\Framework\returnSelf;
 
 class StripePaymentController extends Controller
 {
@@ -37,22 +43,35 @@ class StripePaymentController extends Controller
 
         Session::flash('success', 'Payment successful!');
 
-       // dd($request->panier);
-       $panier = $request->panier;
-       $montant = $request->prix;
 
-       //dd($panier);
-        return  view('facture.show', compact('panier', 'montant'));
+
+
+        $cmd=Auth::user()->commandes()->create([
+            'prixT_com'=>doubleval($request->prix),
+
+        ]);
+
+
+        //creation des article de la commande
+
+      $panier=$request->panier;
+    //   dd($panier);
+
+      $obj = json_decode($panier);
+
+
+        foreach ($obj as  $item) {
+
+            $cmd->articles()->create([
+             'produit_id'=>  $item->id,
+             'qteA_art'=> $item->quantity,
+            ]);
+
+        }
+        $montant = doubleval($request->prix);
+        return view('facture.show', compact('cmd', 'montant'));
+
     }
 
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
-    {
-        $panier = $request->panier;
-        $montant = $request->prix;
-
-        return Pdf::loadView('facture.facture', compact('panier', 'montant'))->download('Facture.pdf');
-    }
+    
 }

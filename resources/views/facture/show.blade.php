@@ -25,12 +25,13 @@
     </thead>
         <tbody>
 
-            @foreach ($panier as $composante )
+            {{-- {{dd($cmd->articles)}} --}}
+            @foreach ($cmd->articles as $composante )
             <tr>
-            <td>{{$composante->name}}</td>
-            <td>{{$composante->price}}</td>
-            <td>{{$composante->quantity}}</td>
-            <td>{{$composante->price * $composante->quantity}}</td>
+            <td>{{$composante->produit->nom_prod}}</td>
+            <td>{{$composante->produit->prix_prod}}</td>
+            <td>{{$composante->qteA_art}}</td>
+            <td>{{$composante->produit->prix_prod * $composante->qteA_art}}</td>
             </tr>
             @endforeach
 
@@ -42,6 +43,11 @@
 
    </table>
 
-   <a href="{{ route('facture') }}"> obtenir ma facture</a>
+   <form action="{{route('facture')}}" method="POST">
+    @csrf
+    <input type="hidden" value="{{$cmd}}" name="commande">
+    <input type="hidden" name="montant" id="montant", value="{{$montant}}">
+    <input type="submit" value=" obtenir ma facture">
+</form>
 </body>
 </html>
