@@ -12,7 +12,7 @@ class Commande extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $fillable = ['status_com'];
+    protected $fillable = ['prixT_com'];
 
     public function articles(): HasMany{
         return $this->hasMany(Article::class);

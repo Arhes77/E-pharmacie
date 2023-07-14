@@ -34,41 +34,41 @@ class Chat extends Component
 
     public function typing($event)
 {
-    array_map(function ($user) use ($event): void {
-        if ($user['id'] === $event['id']) {
-            $user['typing'] = true;
- 
-            $this->userTyping = $user['id'];
-        }
-    },$this->usersOnline);
-    // $this->usersOnline->map(function ($user) use ($event): void {
+    // array_map(function ($user) use ($event): void {
     //     if ($user['id'] === $event['id']) {
     //         $user['typing'] = true;
  
     //         $this->userTyping = $user['id'];
     //     }
-    // });
+    // },$this->usersOnline);
+    $this->usersOnline->map(function ($user) use ($event): void {
+        if ($user['id'] === $event['id']) {
+            $user['typing'] = true;
+                
+            $this->userTyping = $user['id'];
+        }
+    });
 }
  
 public function stoppedTyping($event)
 {
 
-    array_map(function ($user) use ($event): void {
-        if ($user['id'] === $event['id']) {
-            unset($user['typing']);
- 
-            $this->userTyping = null;
-        }
-    },$this->usersOnline);
-
-
-    // $this->usersOnline->map(function ($user) use ($event): void {
+    // array_map(function ($user) use ($event): void {
     //     if ($user['id'] === $event['id']) {
     //         unset($user['typing']);
  
     //         $this->userTyping = null;
     //     }
-    // });
+    // },$this->usersOnline);
+
+
+    $this->usersOnline->map(function ($user) use ($event): void {
+        if ($user['id'] === $event['id']) {
+            unset($user['typing']);
+ 
+            $this->userTyping = null;
+        }
+    });
 }
 
     public function here($users)

@@ -16,7 +16,7 @@ class Produit extends Model
         'prix_prod',
         'url_prod',
         'code_prod',
-        'qtes_prod'
+        'qteS_prod'
     ];
 
 

@@ -1,4 +1,5 @@
 @extends('layouts.index')
 @section('main')
-    <livewire:chat/>
+
+{{-- {{$prod->nom_prod}} --}}
 @endsection

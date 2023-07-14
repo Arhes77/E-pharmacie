@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CategorieResource\Pages;
-use App\Filament\Resources\CategorieResource\RelationManagers;
-use App\Models\Categorie;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Categorie;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\CategorieResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\CategorieResource\RelationManagers;
 
 class CategorieResource extends Resource
 {
@@ -59,6 +60,7 @@ class CategorieResource extends Resource
     {
         return [
             //
+          
         ];
     }
 
