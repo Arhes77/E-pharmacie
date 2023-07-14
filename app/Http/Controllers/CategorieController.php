@@ -33,7 +33,7 @@ class CategorieController extends Controller
     {
 
 
-        return view('Categorie.index', compact('famille'));
+        return view('Categorie.index', compact('famille')); 
     }
 
     /**
@@ -49,7 +49,7 @@ class CategorieController extends Controller
 
         $request->validate([
             'nom_cat' => ['required', 'max:255'],
-            'descri_cat' => ['required', 'string', 'min:20'],
+            'descri_cat' => ['required', 'string', 'min:5'],
 
         ]);
         $famill = Famille::findOrFail($famille);

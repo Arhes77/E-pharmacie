@@ -15,7 +15,7 @@
             <x-text-input id="contenue" placeholder="contenue de votre conseil" class="block mt-1 w-full" type="text" name="contenue"
                 :value="old('contenue')" required autofocus autocomplete="contenue" />
             <x-input-error :messages="$errors->get('contenue')" class="mt-2" />
-        </div>
+        </div> 
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button class="ml-4">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("code_prod")->nullable();
             $table->string("nom_prod");
-            $table->string("descri_prod");
+            $table->longText("descri_prod");
             $table->integer('prix_prod');
             $table->string("url_prod");
             $table->foreignId("categorie_id");

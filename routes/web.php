@@ -97,7 +97,9 @@ Route::post('/categorie/store/{id_famille}',[CategorieController::class,'store']
 // pour les produit
 Route::get('/produit/create',[ProduitController::class,'create'])->name('produit.create');
 Route::post('/produit/store',[ProduitController::class,'store'])->name('produit.store');
-Route::get('/produit/index',[ProduitController::class,'index'])->name('produit.index');
+Route::get('/produit/index/{famille}',[ProduitController::class,'index'])->name('produit.index'); 
+Route::get('/produit/details/{nom}',[ProduitController::class,'details'])->name('produit.details'); 
+
 Route::post('/produit/update/{produit}',[ProduitController::class,'update'])->name('produit.update');
 Route::get('/produit/edit/{produit}',[ProduitController::class,'edit'])->name('produit.edit');
 Route::delete('/produit/delete/{produit}',[ProduitController::class,'destroy'])->name('produit.destroy');
@@ -160,10 +162,7 @@ Route::controller(StripePaymentController::class)->group(function(){
 Route::middleware('auth')->group(function () {
     Route::get('/chatForum', function () {
         return view('chat.forum');
-    });
-    });
-
-
-
+    })->name('chatforum');
+});
 
 require __DIR__.'/auth.php';

@@ -7,25 +7,22 @@
     <link rel="icon" href="{{ asset('images/logo/logo.png') }}" type="image">
 
 
-    <title>Epharma@237</title>
+    <title class="text-green-600">Epharma@237:Phamacie et Parapharmacie du 237(Cameroun)</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
     @vite('resources/css/app.css')
     @livewireStyles
 </head>
 
-<body class="" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    localStorage.setItem('darkMode', JSON.stringify(true));
-}
-darkMode = JSON.parse(localStorage.getItem('darkMode'));
-$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-    <div -bind:class="{'dark' : darkMode === true}">
+<body>
+    <div>
         <header
-            class="block sticky dark:relative bg-white dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="block lg:sticky z-30 bg-gray-100 dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
@@ -48,45 +45,37 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                 <div class="ml-auto items-center flex">
                     @if (Auth::user())
                         <!-- Settings Dropdown -->
-                        <div class="flex mx-2">
+                        <div class="flex">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
-                                    <button
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 fill-blue-500 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                    <div data-te-chip-init data-te-ripple-init
+                                        class="[word-wrap: break-word] my-[5px] mr-4 flex h-[42px] cursor-pointer items-center justify-between rounded-[18px] bg-gray-100 px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#4f4f4f] shadow-none transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-white  dark:bg-neutral-600 dark:text-neutral-200">
+                                        <img class="my-0 -ml-[10px] mr-[8px] h-[inherit] w-[inherit] rounded-[90%]"
+                                            src="{{ Storage::url(Auth::user()->profil) }}" alt="Contact Person" />
+                                        {{ Auth::user()->nom }}
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
                                         </svg>
-                                        <div>{{ Auth::user()->nom }}</div>
-
-                                        <div class="ml-1">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </button>
+                                    </div>
                                 </x-slot>
-
-                                <x-slot name="content">                
-                                       <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                <x-slot name="content">
+                                    <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                                         href="/admin">Administration</a>
-                                     <x-dropdown-link :href="route('profile.edit')">
+                                    <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Profil') }}
-                                        </x-dropdown-link>
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-
-                                            <x-dropdown-link :href="route('logout')"
-                                                onclick="event.preventDefault();
+                                    </x-dropdown-link>
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                                {{ __('Log Out') }}
-                                            </x-dropdown-link>
-                                        </form>
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </form>
                                 </x-slot>
                             </x-dropdown>
                         </div>
@@ -106,54 +95,36 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                         </div>
                     @endif
-
                     {{-- Dark theme a implementer --}}
                     <div class="mr-2">
-                        <button id="theme-toggle" type="button"
-                            x-bind:class="darkMode ? 'bg-green-500' : 'bg-gray-200'" x-on:click="darkMode = !darkMode"
-                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            role="switch" aria-checked="false">
-                            <span class="sr-only">Dark mode toggle</span>
-                            <span x-bind:class="darkMode ? 'translate-x-5 bg-gray-700' : 'translate-x-0 bg-white'"
-                                class="pointer-events-none relative inline-block h-5 w-5 transform rounded-full shadow ring-0 transition duration-200 ease-in-out">
-                                <span
-                                    x-bind:class="darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200'"
-                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-                                    aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-gray-400"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                                    </svg>
-                                </span>
-                                <span
-                                    x-bind:class="darkMode ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100'"
-                                    class="absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
-                                    aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </span>
-                            </span>
-                        </button>
+                        <h6>Theme</h6>
+                        <label  class="swap swap-rotate">  
+                            <!-- this hidden checkbox controls the state -->
+                            <input id="theme-toggle" type="checkbox" class="invisible" />
+                            
+                            <!-- sun icon -->
+                            <svg class="swap-off fill-current w-10 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+                            
+                            <!-- moon icon -->
+                            <svg class="swap-on text-green-500 fill-current w-10 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+                            
+                        </label>
                     </div>
                 </div>
             </div>
             {{-- Logo composant de recherche et pannier --}}
             <div class="flex mb-0 flex-row w-full ">
                 {{-- Logo --}}
-                <div class="flex w-1/4 py-2">
+                <div class="flex lg:w-1/4  py-2">
                     <x-application-logo />
                 </div>
                 {{-- composant de recherche --}}
-                <div class="py-auto self-center flex w-1/2">
+                <div class="py-auto self-center flex lg:w-1/2">
                     {{-- composants de reherche --}}
                     <livewire:search-produit />
                 </div>
                 {{-- composant du pannier --}}
-                <div class="flex w-1/4 m-5">
+                <div class="flex w-1/4 my-auto ml-1">
                     {{-- composants Pannier --}}
                     <livewire:panier-produit />
                 </div>
@@ -161,13 +132,13 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             {{-- navigation --}}
             <div class="mt-0 dark:text-white">
                 <nav class="pt-5 w-full  flex flex-row">
-                    <x-responsive-nav-link :href="route('produit.index')" class="hover:bg-blue-600">
+                    <x-responsive-nav-link :href="route('produit.index', [1])" class="focus:bg-blue-600">
                         {{ __('Medicaments') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('produit.index', [2])" class="focus:bg-blue-600">
                         {{ __('Parapharmacie') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('produit.index', [3])" class="focus:bg-blue-600">
                         {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link>
@@ -180,7 +151,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </header>
 
         <!-- Page Content -->
-        <main class="dark:bg-gray-900 dark:text-gray-400">
+        <main class="dark:bg-neutral-600 dark:text-neutral-200">
             @yield('main')
         </main>
 

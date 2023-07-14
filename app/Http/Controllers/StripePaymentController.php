@@ -41,9 +41,9 @@ class StripePaymentController extends Controller
         Session::flash('success', 'Payment successful!');
 
         
-        $cmd=new Commande();
+        
 
-        Auth::user()->commandes()->create([
+        $cmd=Auth::user()->commandes()->create([
             'prixT_com'=>doubleval($request->prix),
         
         ]);
@@ -51,15 +51,24 @@ class StripePaymentController extends Controller
 
         //creation des article de la commande 
       
-      eval("\$panier = $request->panier;");
-       
-        foreach($panier as $item){
-        $cmd->articles()->create([
-            'produit_id'=>$item->id,
-            'qteA_art'=>$item->quantity,
+      $panier=$request->panier;
+    //   dd($panier);
+   
+      $obj = json_decode($panier);
+      
+
+        foreach ($obj as  $item) {
             
-        ]);
-    }
+            $cmd->articles()->create([
+             'produit_id'=>  $item->id, 
+             'qteA_art'=> $item->quantity,
+            ]);
+
+           
+           
+        }
+
+       
     
        
         

@@ -1,9 +1,88 @@
 @extends('layouts.index')
 @section('main')
-    <div id="app" class="flex flex-col font-bold decoration-4 items-center">
-        <div class="w-full mx-5 my-5 -z-10 dark:z-0 pt-1.5">
-            <Caroussel />
+    <div class="flex flex-col font-bold decoration-4 items-center">
+        <div id="carouselDarkVariant" class="relative m-3 px-3 z-[1]" data-te-carousel-init data-te-carousel-slide>
+            <!-- Carousel indicators -->
+            <div class="absolute inset-x-0 bottom-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                data-te-carousel-indicators>
+                <button data-te-target="#carouselDarkVariant" data-te-slide-to="0" data-te-carousel-active
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button data-te-target="#carouselDarkVariant"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    data-te-slide-to="1" aria-label="Slide 1"></button>
+                <button data-te-target="#carouselDarkVariant"
+                    class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                    data-te-slide-to="2" aria-label="Slide 1"></button>
+            </div>
+
+            <!-- Carousel items -->
+            <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+                <!-- First item -->
+                <div class="relative float-left -mr-[100%] w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-fade data-te-carousel-item data-te-carousel-active>
+                    <img src="images/cover/affiche3.jpg" class="" alt="caroussel image" />
+                    <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
+                        <h5 class="text-xl">Bienvenue sur <b class="text-green-800 text-2xl">Epharma@237</b></h5>
+                        <p>
+                            Votre pharmacie en ligne Camerounaise, acheter avec et sans ordonance chez nous...
+                        </p>
+                    </div>
+                </div>
+                <!-- Second item -->
+                <div class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-fade data-te-carousel-item>
+                    <img src="images/cover/care.jpg" class="" alt="caroussel image" />
+                    <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
+                        <h5 class="text-xl">Faites nous confiance ! ! !</h5>
+                        <p>
+                            Votre satisfaction en matière de santé est notre priorité, nous mettons à votre un personnel
+                            qualifier pour vos besoins et Conseils
+                        </p>
+                    </div>
+                </div>
+                <!-- Third item -->
+                <div class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+                    data-te-carousel-fade data-te-carousel-item>
+                    <img src="images/cover/affiche2.jpg" class="" alt="caroussel image" />
+                    <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
+                        <h5 class="text-xl">Livraison rapide avec un delai de 24h </h5>
+                        <p>
+                            Nous assurons une livraison rapide à l'adresse de votre choix, nous couvrons l'essemble de la
+                            region de l'ouest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel controls - prev item-->
+            <button
+                class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-70 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button" data-te-target="#carouselDarkVariant" data-te-slide="prev">
+                <span class="inline-block h-8 w-8 dark:grayscale">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </span>
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">préccedent</span>
+            </button>
+            <!-- Carousel controls - next item-->
+            <button
+                class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-70 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                type="button" data-te-target="#carouselDarkVariant" data-te-slide="next">
+                <span class="inline-block h-8 w-8 dark:grayscale">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </span>
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">suivant</span>
+            </button>
         </div>
+
         <div class="font-bold my-3 uppercase">
             <h1>Nos produits sante du mois</h1>
         </div>
@@ -83,34 +162,36 @@
         <div class="font-bold my-3 uppercase">
             <h1>Nos conseils <b>sante</b> </h1>
         </div>
-        <div class="flex flex-row-2 w-fit mx-5 my-3">
+        <div class="flex flex-row-2 w-fit lg:mx-5 md:m-auto lg:my-3">
             <div class="bg-cover flex-auto overflow-y-scroll h-96 w-1/2 rounded-md mx-auto py-8 text-left"
                 style="background-image: url('/images/cover/fond.jpg')">
                 <div class="mx-1.5 mb-auto">
-                    <h1 class="text-blue-600 text-4xl">Conseils</h1>
+                    <h1 class="text-blue-600 md:text-2xl lg:text-4xl">Conseils</h1>
                     <ul class="list-disc list-inside mt-4 text-center">
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Comment bien choisir son
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Comment bien choisir son
                                 soin minceur </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Douleur musculaire </a>
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Douleur musculaire </a>
                         </li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Quelle lyposaine choisir
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Quelle lyposaine choisir
                                 ??? </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Ibuprofene : 8
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Ibuprofene : 8
                                 precautions a prendre </a></li>
-                        <li class="hover:opacity-70 text-blue-700 text-xl"><a  href="#"> Besoin d'aide pour selectioner un produit ??? </a></li>
+                        <li class="hover:opacity-70 text-blue-700 md:text-xs lg:text-xl"><a href="#"> Besoin d'aide pour
+                                selectioner un produit ??? </a></li>
                     </ul>
                 </div>
             </div>
-            <div class="ml-5 mx-5 rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
+            <div class="lg:ml-5 lg:mx-5 md:m-auto rounded-md h-96 overflow-y-scroll  bg-slate-200 w-1/2">
                 <div class="mx-1.5 my-1.5   pt-8 h-auto ">
-                    <h1 class="text-blue-600 text-center text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser ???<br></h1>
+                    <h1 class="text-blue-600 text-center md:text-xl lg:text-3xl mx-2 my-2 font-bold">Besoin d'un conseil personaliser
+                        ???<br></h1>
                     <p>Nos pharmaciens sont disponible 24/24 pour vous alors n'hesitez pas a nous contactez
-                        dans le <b class="text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
-                        <b class="text-xl text-blue-800">email</b>.
+                        dans le <b class="md:text-xs lg:text-xl text-blue-800">forum</b> de discussion du site ou bien a nous laisser un
+                        <b class="md:text-xs lg:text-xl text-blue-800">email</b>.
                     </p>
                 </div>
                 <div class="bg-orange-500 h-1/2 mt-2.5 rounded-b-md text-white w-full bg-center flex flex-col">
-                    <a href="#"class="flex m-2 hover:opacity-70   items-center"><svg
+                    <a href="{{route('chatforum')}}"class="flex m-2 hover:opacity-70   items-center"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 hover:animate-ping mr-4 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -118,9 +199,10 @@
                         </svg>
                         <h6>Aller au Forum </h6>
                     </a>
-                    <a href="mailto:willypericlesfoumeouamba@gmail.com" class="flex hover:opacity-70  m-2 items-center"><svg
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-7 mr-4 hover:animate-bounce h-10">
+                    <a href="mailto:willypericlesfoumeouamba@gmail.com"
+                        class="flex hover:opacity-70  m-2 items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="w-7 mr-4 hover:animate-bounce h-10">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                         </svg>
@@ -139,7 +221,7 @@
 
             </div>
         </div>
-        <div class="font-bold flex text-4xl my-3">
+        <div class="font-bold flex md:text-2xl lg:text-4xl my-3">
             <h1> <i class="text-blue-600">Pharma237</i> : Pharmacie en ligne ET Parapharmacie </h1>
         </div>
         <div class="flex flex-col text-justify  w-fit mx-5 my-3 items-center">
@@ -177,7 +259,7 @@
                 </p>
             </div>
 
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Une pharmacie en ligne qui vous permet un large choix de
                     médicaments
                     pour toute la famille</h3>
@@ -207,7 +289,7 @@
                     lecteurs de glycémie dans le cadre d’un diabète ou encore des tests de grossesse.
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Une pharmacie en ligne qui vous permet un large choix de
                     médicaments
                     pour toute la famille</h3>
@@ -237,7 +319,7 @@
                     lecteurs de glycémie dans le cadre d’un diabète ou encore des tests de grossesse
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">Les plus grandes marques de parapharmacie, matériel médical,
                     produits
                     vétérinaires en ligne</h3>
@@ -257,7 +339,7 @@
                     renseignés dans les fiches des produits orthopédiques.
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class="w-fit my-3">
                 <h3 class="text-2xl my-2 text-green-500">L’engagement de nos pharmaciens à vos côtés</h3>
                 <i class="text-xl my-2">L’expertise de nos pharmaciens et leurs conseils</i><br>
                 <p>Nous avons à cœur de satisfaire toutes les demandes adaptées à tous les âges. Les jeunes parents
@@ -321,7 +403,7 @@
                     Oenobiol - Anaca 3 - Parodontax</p>
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <i class="text-xl my-2">Les Tops Produits dans votre pharmacie en ligne :</i><br>
                 <p>Notre pharmacie en ligne propose également un large choix de matériel médical : vous trouverez, en ligne
                     sur
@@ -334,7 +416,7 @@
                     masques - La Rosée - Lazartigue - NHCO</p>
                 </p>
             </div>
-            <div class="container  w-fit mx-5 my-3 items-center">
+            <div class=" w-fit my-3">
                 <h3 class="text-2xl my-2 text-red-400">Comment être sûr d’acheter mes médicaments auprès d’une pharmacie en
                     ligne ?</h3>
                 <i class="text-xl my-2">Les risques liés à la contrefaçon des médicaments et aux sites obscurs</i><br>

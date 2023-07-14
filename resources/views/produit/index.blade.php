@@ -10,7 +10,7 @@
 
             <div>
                 <label for="descri">description</label>
-                <input type="text" name="descri_prod" id="descri">
+                <textarea name="descri_prod" id="descri" cols="30" rows="10" ></textarea>
             </div>
             <div>
                 <label for="code">code produit</label>
@@ -44,7 +44,7 @@
     </form>
 
     <br>
-    <form class="mt-5" action="{{ route('categorie.store',[1]) }}" method="post" enctype="multipart/form-data">
+    <form class="mt-5" action="{{ route('categorie.store',[2]) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <div>
