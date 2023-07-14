@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('message_pers', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->onDeleteCascade();
-            $table->string("conten_smsP");
+            $table->text("conten_smsP");
             $table->timestamps();
         });
     }

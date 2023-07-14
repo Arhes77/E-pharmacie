@@ -46,11 +46,7 @@ class ProduitComponent extends Component
         'name'=>$Produit->nom_prod,
          'price'=>$Produit->prix_prod,
          'quantity'=>1,
-         
-         'attribute'=>array(
-            'image'=>$Produit->url_prod,
-         ),
-       
+        'image'=>$Produit->url_prod,       
   ]);
     $this->items = \Cart::getContent();
     $this->emit('PanierProduit',$this->items);

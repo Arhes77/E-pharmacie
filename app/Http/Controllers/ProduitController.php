@@ -28,7 +28,7 @@ class ProduitController extends Controller
 
     public function details($nom)
     {
-        $prod = Produit::where('nom_prod',$nom)->get();
+        $prod = Produit::where('nom_prod',$nom)->first();
         return view('Produit.detailsProd', compact('prod'));
     }
     /**
