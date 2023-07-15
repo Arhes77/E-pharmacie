@@ -17,7 +17,7 @@ class Article extends Model
         return $this->belongsTo(Commande::class);
     }
 
-    public function produits(): HasMany {
-        return $this->hasMany(Produit::class);
+    public function produit(): BelongsTo {
+        return $this->belongsTo(Produit::class);
     }
 }

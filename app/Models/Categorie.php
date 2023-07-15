@@ -11,7 +11,7 @@ class Categorie extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $fillable = ['descri_cat', 'nom_cat'];
+    protected $fillable = ['descri_cat', 'nom_cat','famille_id'];
 
     public function famille(): BelongsTo
     {

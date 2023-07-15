@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\CategorieResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\CategorieResource\RelationManagers;
+use App\Models\Famille;
 
 class CategorieResource extends Resource
 {
@@ -25,9 +26,12 @@ class CategorieResource extends Resource
         return $form
             ->schema([
                 //
-                Forms\Components\TextInput::make('nom_cat')->required(),
-                Forms\Components\TextInput::make('descri_cat')->required(),
-                Forms\Components\TextInput::make('famille_id')->required(),
+                Forms\Components\TextInput::make('nom_cat')->required()->label(__('Nom de la categorie')),
+                Forms\Components\TextInput::make('descri_cat')->required()->label(__('Description de la categorie')),
+                Select::make('famille_id')
+                ->options(function () {
+                    return Famille::all()->pluck('nom_fam', 'id');
+                }),
 
             ]);
     }

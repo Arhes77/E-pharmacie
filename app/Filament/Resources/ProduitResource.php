@@ -8,11 +8,13 @@ use App\Models\Produit;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProduitResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProduitResource\RelationManagers;
+use App\Models\Categorie;
 
 class ProduitResource extends Resource
 {
@@ -29,7 +31,11 @@ class ProduitResource extends Resource
                 Forms\Components\TextInput::make('nom_prod')->required()->label(__('Nom du Produit')),
                 Forms\Components\TextInput::make('descri_prod')->required()->label(__('Description du produit')),
                 Forms\Components\TextInput::make('prix_prod')->required()->label(__('Prix du produit')),
-                Forms\Components\TextInput::make('categorie_id')->required()->relationship('Categorie', 'nom_cat'),
+                // Forms\Components\TextInput::make('categorie_id')->required()->relationship('Categorie', 'id'),
+                Select::make('categorie_id')
+                    ->options(function () {
+                        return Categorie::all()->pluck('nom_cat', 'id');
+                    }),
                 Forms\Components\TextInput::make('qteS_prod')->required()->label(__('quantite en en stock')),
                 Forms\Components\TextInput::make('code_prod')->required(),
 
