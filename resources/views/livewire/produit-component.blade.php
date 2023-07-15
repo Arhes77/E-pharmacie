@@ -5,7 +5,7 @@
             @if ($i <= 3)
                 <div
                     class="border font-bold transition duration-700 ease-out delay-150 hover:shadow-xl hover:translate-y-3 dark:text-gray-800 bg-white my-2 lg:-ml-5 md:ml-0.5 w-1/4  flex flex-col ">
-                    <a class="flex h-full flex-col" href="#">
+                    <a class="flex h-full flex-col" href="{{ route('produit.details', [$prod->nom_prod]) }}">
                         <div class="my-auto ">
                             <img src="{{ Storage::url($prod->url_prod) }}" alt="Image du produit" class="w-fit h-full" />
                         </div>
@@ -16,7 +16,7 @@
                         </div>
                     </a>
                     <button type="button "
-                        class="inline-block  rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                        class="rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
 
                     </button>
                     @if ($prod->qteS_prod == 0)
@@ -56,7 +56,7 @@
     @forelse ($p->produits as $i => $prod)
         <div
             class="border font-bold transition duration-700 ease-out delay-150 hover:shadow-xl hover:translate-y-3 dark:text-gray-800 bg-white my-2 lg:-ml-5 md:ml-0.5 w-1/4  flex flex-col ">
-            <a class="flex h-full flex-col" href="#">
+            <a class="flex h-full flex-col" href="{{ route('produit.details', [$prod->nom_prod]) }}">
                 <div class="my-auto ">
                     <img src="{{ Storage::url($prod->url_prod) }}" alt="Image du produit" class="w-fit h-full" />
                 </div>

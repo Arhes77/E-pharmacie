@@ -12,8 +12,7 @@
         <!-- contenue-->
         <div>
             <x-input-label for="contenue" :value="__('Contenue')" />
-            <x-text-input id="contenue" placeholder="contenue de votre conseil" class="block mt-1 w-full" type="text" name="contenue"
-                :value="old('contenue')" required autofocus autocomplete="contenue" />
+                <textarea class="block mt-1 w-full border-spacing-2 rounded " name="contenue" id="contenue" cols="30" placeholder="Contenue du conseil" rows="10"></textarea>
             <x-input-error :messages="$errors->get('contenue')" class="mt-2" />
         </div> 
 

@@ -2,6 +2,6 @@
     <a class="flex flex-row overflow-x-hidden items-center" href="/">
         <img {{ $attributes }} class="h-20 w-20 fill-current text-gray-500" src="/images/logo/logo.png"
             alt="" />
-        <h1>EPHARMA@237</h1>
+        <h1>EPHARM@237</h1>
     </a>
 </div>

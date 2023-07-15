@@ -9,42 +9,44 @@
         <h5>Panier</h5> <label
             class="w-6 h-8 text-black text-xl text-center rounded-xl bg-white">{{ count($message) }}</label>
     </label>
-    <div tabindex="0" class="dropdown-content menu p-2  shadow bg-base-100 rounded-box  w-fit">
-        <div class="w-full dark:text-gray-200 flex flex-row">
+    <div tabindex="0" class="dropdown-content menu p-2  shadow bg-base-100 rounded box-border w-fit">
+        <div class="w-full flex flex-row">
             @if (count($message) > 0)
                 <div class="py-9 text-center ">
                     <table class="table-auto self-center">
                         <thead class="bg-green-500 h-auto pt-0">
                             <tr class="bg-green-500 h-auto">
+                                <th class="mx-2"></th>
                                 <th class="text-xl text-white mx-2">Produits</th>
                                 <th class="text-xl text-white mx-2">PU</th>
                                 <th class="text-xl text-white mx-2">Notice</th>
                                 <th class="text-xl text-white mx-2">Qte</th>
                                 <th class="text-xl text-white mx-2">Total</th>
-                                <th class="text-xl text-white mx-2"></th>
+                                <th class="mx-2"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($message as $index=> $item)
                                 <tr class="border-b border-gray-400">
+                                    <td></td>                                     
                                     <td>{{ $item['name'] }}</td>
                                     <td>{{ $item['price'] }}</td>
                                     <td><a href="{{ route('produit.details', [$item['name']]) }}">notice</a></td>
                                     <td class="items-center flex flex-rows-1 ">
                                         <button
-                                            class="text-xs ml-3 w-7 h-7 rounded-full border-2 border-gray-800 items-center"
+                                            class="text-xs ml-3 w-v h-5 rounded-full border-2 border-gray-800 items-center"
                                             wire:click="decrementQuantity({{ $index }})"><svg
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6 self-center">
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-4 self-center">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
                                             </svg>
                                         </button>
                                         <label class="text-center ml-4" for="qte">{{ $item['quantity'] }}</label>
                                         <button
-                                            class="text-xs ml-4  w-7 h-7 rounded-full border-2 border-gray-800 items-center"
+                                            class="text-xs ml-4  w-v h-5 rounded-full border-2 border-gray-800 items-center"
                                             wire:click="incrementQuantity({{ $index }})"><svg
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6 self-center">
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-4 self-center">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M12 4.5v15m7.5-7.5h-15" />
                                             </svg>
@@ -52,11 +54,11 @@
                                     </td>
                                     <td>
                                         <span>{{ $totalPrice = $item['price'] * $item['quantity'] }}</span>
-                                           <h5 class="font-bold">fcfa</h1> 
-                                        </a>
+                                        <h5 class="font-bold">fcfa</h1>
+                                            </a>
                                     </td>
-                                    <td class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor"
+                                    <td class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                             class="w-6 h-6 border-1 rounded-full"
                                             wire:click="retirerPanier({{ $item['id'] }},{{ $index }})"
                                             wire:init="totalPriceProduit({{ $totalPrice }})">
@@ -87,8 +89,7 @@
                             @csrf
                             <input type="hidden" name="prix" value="{{ $totalProduit }}">
                             <input type="hidden" name="panier" value="{{ $message }}">
-                            <button
-                                class="text-xl text-white btn btn-success hover:bg-green-700 focus:bg-black">
+                            <button class="text-xl text-white btn btn-success hover:bg-green-700 focus:bg-black">
                                 Commander
                             </button>
                         </form>

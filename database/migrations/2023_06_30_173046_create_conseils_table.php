@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('conseils', function (Blueprint $table) {
             $table->id();
-            $table->string('theme');
-            $table->string('contenue');
+            $table->text('theme');
+            $table->longText('contenue');
             $table->foreignId("personnel_id")->onDeleteCascade()->onUpdateCascade()->nullable();
             $table->timestamps();
         });
