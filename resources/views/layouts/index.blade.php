@@ -58,15 +58,15 @@
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
-                <div class="flex items-center">
-                    <a class="flex ml-3 px-auto">
+                <div class="flex items-center" >
+                    <a class="flex ml-3 px-auto" href=" {{route('apropos')}} ">
                         Contactez-nous<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </a>
-                    <a class="flex ml-3 mx-auto">Qui somme-nous ?<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    <a class="flex ml-3 mx-auto" href="{{ route('localisation') }}">notre localisation<svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -93,9 +93,12 @@
                                         </svg>
                                     </div>
                                 </x-slot>
+
                                 <x-slot name="content">
+                                    @if (Auth::user()->email == 'admin123@gmail.com')
                                     <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-                                        href="/admin">Administration</a>
+                                    href="/admin">Administration</a>
+                                    @endif
                                     <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Profil') }}
                                     </x-dropdown-link>
