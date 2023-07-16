@@ -53,6 +53,7 @@ Route::get('/test', function () {
     return view('test');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -100,7 +101,6 @@ Route::get('/produit/create',[ProduitController::class,'create'])->name('produit
 Route::post('/produit/store',[ProduitController::class,'store'])->name('produit.store');
 Route::get('/produit/index/{famille}',[ProduitController::class,'index'])->name('produit.index');
 Route::get('/produit/details/{nom}',[ProduitController::class,'details'])->name('produit.details');
-
 Route::post('/produit/update/{produit}',[ProduitController::class,'update'])->name('produit.update');
 Route::get('/produit/edit/{produit}',[ProduitController::class,'edit'])->name('produit.edit');
 Route::delete('/produit/delete/{produit}',[ProduitController::class,'destroy'])->name('produit.destroy');
@@ -146,21 +146,31 @@ Route::delete('/commentaire/delete/{comments}', [CommentaireController::class, '
 //route pour la localisation
 Route::get('/localisation', function () {
     return view('localisation.localisation');
-});
+})->name('localisation');
+
+Route::get('/apropos', function () {
+    return view('apropos');
+})->name('apropos');
+
+Route::get('/prototip', function () {
+    return view('facture.prototip');
+})->name('apropos');
+
+
 
 //route pour la commande
-Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index');
+Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index')->middleware('auth');
     //afficher le formullaire de paiement
-Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show');
+Route::post('/commande/show',[CommandeController::class,'show'])->name('commande.show')->middleware('auth');
 
 //route pour le paiement
-Route::controller(StripePaymentController::class)->group(function(){
+Route::controller(StripePaymentController::class)->middleware('auth')->group(function(){
     Route::post('stripe/test', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
 
 //route pour la generation de la facture
-Route::post('/facture', [FactureController::class, '__invoke'])->name('facture');
+Route::post('/facture', [FactureController::class, '__invoke'])->name('facture')->middleware('auth');
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {

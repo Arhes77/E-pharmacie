@@ -44,24 +44,43 @@ class RegisteredUserController extends Controller
         ]);
 
         $filename = time() . '.' . $request->profil->extension();
-        $path= $request->file('profil')->storeAs('UserProfil', $filename, 'public');
+        $path = $request->file('profil')->storeAs('UserProfil', $filename, 'public');
 
 
-        $user = User::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'email' => $request->email,
-            'telephone' => $request->telephone,
-            'adresse' => $request->adresse,
-            'sexe' => $request->sexe,
-            'profil' => $path,
-            'birthdate' => $request->birthdate,
-            //'qualification' => $request->qualification,
-            'password' => Hash::make($request->password),
-        ]);
+        $users = User::all();
+
+
+
+        if ($users->isEmpty()) {
+            $user = User::create([
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'email' => $request->email,
+                'telephone' => $request->telephone,
+                'adresse' => $request->adresse,
+                'sexe' => $request->sexe,
+                'profil' => $path,
+                'birthdate' => $request->birthdate,
+                'status_id' => 1,
+                'password' => Hash::make($request->password),
+            ]);
+        } else {
+            $user = User::create([
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'email' => $request->email,
+                'telephone' => $request->telephone,
+                'adresse' => $request->adresse,
+                'sexe' => $request->sexe,
+                'profil' => $path,
+                'birthdate' => $request->birthdate,
+                'status_id' => 9,
+                'password' => Hash::make($request->password),
+            ]);
+        }
 
         $user->notify(new UserRegisterNotification($user));
-        event(new Registered($user)); 
+        event(new Registered($user));
 
         Auth::login($user);
 

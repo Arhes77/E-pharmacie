@@ -36,13 +36,13 @@ class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
         'profil',
         'birthdate',
         'qualification',
-        'statut_id',
+        'status_id',
         'password',
     ];
 
-    
+
     // ...
- 
+
     public function getFilamentAvatarUrl(): ?string
     {
         return Storage::url($this->profil);
