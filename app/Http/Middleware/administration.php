@@ -17,7 +17,7 @@ class administration
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-        if ($user->email != 'admin123@gmail.com') {
+        if ($user->status_id != 1) {
             return redirect()->route('acceuil');
         } else {
             return $next($request);

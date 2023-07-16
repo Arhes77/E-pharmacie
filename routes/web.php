@@ -152,6 +152,10 @@ Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
 
+Route::get('/prototip', function () {
+    return view('facture.prototip');
+})->name('apropos');
+
 
 
 //route pour la commande
