@@ -16,6 +16,10 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
+    
+        <style>
+            [ x-cloak ] { display: none;}
+        </style>
     @livewireStyles
 </head>
 <script>

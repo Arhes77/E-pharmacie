@@ -23,10 +23,13 @@
                 </ul>
             </div>
         </div>
+        <div class="pt-3"><livewire:flash-message/></div>
         <div class="flex flex-wrap lg:ml-12 md:ml-0.5 my-4 flex-col">
+            
             @forelse ($cat as $p)
                 <h4 class="font-bold w-fit my-3 self-center text-2xl">{{ $p->nom_cat }}</h4>
                 <livewire:produit-component :p="$p" :bools="1" />
+                
             @empty
                 <h4 class="w-fit my-3 self-center text-red-600 text-xl">Acune Catégories pour le moment!!!</h4>
             @endforelse

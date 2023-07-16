@@ -8,6 +8,7 @@
 
      <!-- Scripts -->
      @vite(['resources/css/app.css', 'resources/js/app.js'])
+     @livewireStyles
 </head>
 <body>
 
@@ -22,7 +23,11 @@
             <th>total unitaire</th>
         </tr>
     </thead>
-        <tbody>
+        <tbody
+         wire:sortable
+        wire:end.stop="reorderTable($event.target.sortable.toArray())"
+        wire:sortable.options="{ animation: 100 }"
+        class="divide-y whitespace-nowrap">
 
             @foreach ($composante->articles as $composante )
             <tr>
@@ -39,5 +44,6 @@
 
         </tbody>
    </table>
+   @livewireScripts
 </body>
 </html>
