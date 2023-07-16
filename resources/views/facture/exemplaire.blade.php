@@ -21,11 +21,12 @@
             <div class="w-1/3">
                 <img class="w-14 h-14 rounded-lg mx-auto my-auto " src="/images/logo.png" alt="logo">
             </div>
+            {{-- {{ dd($montant)}} --}}
             <div class="flex flex-col w-1/3">
                 <div class="m-2 text-xl">
-                    <label>FACTURE:{{ $articles->commande->id }} </label>
+                    <label>FACTURE:{{ $cmd->id}} </label>
                 </div>
-                <label for="">Date:{{$articles->commande->created_at}}</label>
+                <label for="">Date:{{$cmd->created_at}}</label>
             </div>
         </div>
         <div class="">

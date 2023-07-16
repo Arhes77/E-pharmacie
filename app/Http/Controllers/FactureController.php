@@ -25,11 +25,16 @@ class FactureController extends Controller
 
 
 
-    public function create(Commande $commande){
-        $articles = Article::where('commande_id', '=', $commande->id);
-        $montant = $commande->prixT_com;
+    public function create(int $id){
 
-        return Pdf::loadView('facture.exemplaire', compact('articles', 'montant'))->download('Facture.pdf');
+        $articles = Article::where('commande_id', '=', $id)->get();
+        //dd($articles);
+        $cmd = Commande::findOrFail($id);//Commande::where('id', '=', $id)->get();
+        //dd($cmd);
+        $montant = $cmd->prixT_com;
+        //dd($articles);
+
+        return Pdf::loadView('facture.exemplaire', compact('articles', 'cmd', 'montant'))->download('Facture.pdf');
 
     }
 }

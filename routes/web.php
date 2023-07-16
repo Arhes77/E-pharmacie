@@ -167,7 +167,7 @@ Route::controller(StripePaymentController::class)->middleware('auth')->group(fun
 
 //route pour la generation de la facture
 Route::post('/facture', [FactureController::class, '__invoke'])->name('facture')->middleware('auth');
-Route::post('/regeneration/{commande}', [FactureController::class, 'create'])->name('regeneration')->middleware('auth');
+Route::get('/regeneration/{cmd}', [FactureController::class, 'create'])->name('regeneration')->middleware('auth');
 
 //route pour le chat dans le forum
 Route::middleware('auth')->group(function () {

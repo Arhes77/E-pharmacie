@@ -65,10 +65,8 @@
             @endif
         @endforeach
     </div>
-<<<<<<< HEAD
 
-=======
-    {{-- 
+    {{--
         input pour l'envoie de message  --}}
     <form class="mt-12 mb-8 mx-12 space-x-2" wire:submit.prevent="sendMessage">
         <div class="flex items-center p-3">

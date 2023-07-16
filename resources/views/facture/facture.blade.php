@@ -25,7 +25,7 @@
                 <div class="m-2 text-xl">
                     <label>FACTURE:{{ $composante->id }} </label>
                 </div>
-                <label for="">Date:{{now()}}</label>
+                <label for="">Date:{{$composante->created_at}}</label>
             </div>
         </div>
         <div class="">
