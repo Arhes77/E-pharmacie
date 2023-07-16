@@ -152,11 +152,6 @@ Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
 
-Route::get('/prototip', function () {
-    return view('facture.prototip');
-})->name('apropos');
-
-
 
 //route pour la commande
 Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index')->middleware('auth');
