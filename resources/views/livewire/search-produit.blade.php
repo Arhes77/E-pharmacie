@@ -6,7 +6,8 @@
             class="rounded-md w-full  shadow-sm border-gray-300" type="text"
             placeholder="Paracethamol, Tramadhol, Dollipranne..." autocomplete="off" wire:model="query"
             wire:keydown.arrow-down.prevent="incrementIndex" wire:keydown.arrow-up.prevent="decrementIndex"
-            wire:keydown.backspace="resetIndex">
+            wire:keydown.backspace="resetIndex"
+            wire:keydown.enter.prevent="showProduit">
         <button class="bg-gray-500 ml-1 rounded-md border-gray-300">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-16 h-8 text-white">

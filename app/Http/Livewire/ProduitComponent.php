@@ -50,6 +50,7 @@ class ProduitComponent extends Component
   ]);
     $this->items = \Cart::getContent();
     $this->emit('PanierProduit',$this->items);
+    $this->emit('flash','produit ajouter au panier avec succes','ajoutPanier');
     // app()->instance('items', \Cart::getContent());
 
            

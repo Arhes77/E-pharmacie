@@ -104,6 +104,7 @@ Route::get('/produit/details/{nom}',[ProduitController::class,'details'])->name(
 Route::post('/produit/update/{produit}',[ProduitController::class,'update'])->name('produit.update');
 Route::get('/produit/edit/{produit}',[ProduitController::class,'edit'])->name('produit.edit');
 Route::delete('/produit/delete/{produit}',[ProduitController::class,'destroy'])->name('produit.destroy');
+Route::get('/produit/showsearch/{produit}',[ProduitController::class,'showresult'])->name('produit.showresult');
 
 
 //routes pour les conseils
@@ -151,7 +152,6 @@ Route::get('/localisation', function () {
 Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
-
 
 
 //route pour la commande

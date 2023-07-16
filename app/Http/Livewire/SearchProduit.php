@@ -17,6 +17,13 @@ class SearchProduit extends Component
     }
 
 
+    public function showProduit(){
+        if($this->produits){
+            return redirect()->route('produit.showresult',[$this->produits[$this->selectedIndex]['id']]);
+        }
+    }
+
+
     public function incrementIndex(){
         if(count($this->produits)-1==$this->selectedIndex)
         {
@@ -46,8 +53,10 @@ class SearchProduit extends Component
     {
         $words= '%'. $this->query.'%';
         if(strlen($this->query)>3){
-            $this->produits=Produit::where('nom_prod' ,'Like',$words)
-            ->orwhere('descri_prod','like',$words)
+            $this->produits=Produit::where('nom_prod' ,'ILIKE',$words)
+            ->orwhere('descri_prod','ILIKE',$words)
+            
+            
             ->get();
 
 
