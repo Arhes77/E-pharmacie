@@ -7,7 +7,7 @@
 
 <h1 class="text-center font-extrabold tracking-tight upercase text-5xl">historique de vos commandes</h1>
     <div class="py-12 h-screen flex flex-wrap flex-cols mx-auto">
-        
+
         @forelse (Auth::user()->commandes as $cmd)
             <div
                 class="max-w-7xl  sm:px-6 lg:px-8 border bg-gray-200 rounded-lg mx-12 mt-auto p-5 w-1/4 border-3  mb-12">
@@ -17,8 +17,8 @@
                     </div>
                     <div>
                         <div class="bg-green-100 border-gray-200 rounded-md capitalize px-5 font-extrabold mb-2 text-green-900 text-xl">payé
-                            
-                              
+
+
                         </div>
                     </div>
                 </div>
@@ -45,15 +45,15 @@
                     </div>
                 </div>
                 <div class="flex mr-5 bg-green-200 rounded-full shadow-2xl h-16 w-auto">
-                    <a href="{{route('generation',[$cmd])}}">
+                    <a href="{{ route('regeneration',[$cmd]) }}">
                     <button class="font-extrabold uppercase text-2xl flex">regenerer la facture
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-5 mt-3 text-2xl">
                             <path fill-rule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
                           </svg>
-                          
+
                     </button>
                 </a>
-                   
+
                 </div>
 
 
