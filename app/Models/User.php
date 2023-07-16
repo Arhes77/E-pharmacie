@@ -47,7 +47,7 @@ class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
 
     public function canAccessFilament(): bool
     {
-        return str_ends_with($this->status_id, '@yourdomain.com') && $this->hasVerifiedEmail();
+        return str_ends_with($this->status_id, '1') && $this->hasVerifiedEmail();
     }
 
     public function getFilamentAvatarUrl(): ?string
