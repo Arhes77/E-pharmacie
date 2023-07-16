@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+   
+</HEAD>
 
     <!-- Styles -->
     @vite('resources/css/app.css')
@@ -62,15 +64,15 @@
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
-                <div class="flex items-center">
-                    <a class="flex ml-3 px-auto">
+                <div class="flex items-center" >
+                    <a class="flex ml-3 px-auto" href=" {{route('apropos')}} ">
                         Contactez-nous<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </a>
-                    <a class="flex ml-3 mx-auto">Qui somme-nous ?<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                    <a class="flex ml-3 mx-auto" href="{{ route('localisation') }}">notre localisation<svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -97,9 +99,13 @@
                                         </svg>
                                     </div>
                                 </x-slot>
+
                                 <x-slot name="content">
-                                    <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-                                        href="/admin">Administration</a>
+                                    @if (Auth::user()->status_id == 1)
+                                        <a class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                            href="/admin">Administration</a>
+                                    @endif
+
                                     <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Profil') }}
                                     </x-dropdown-link>
@@ -191,7 +197,8 @@
                 </nav>
             </div>
             <div class="bg-green-500 w-full text-white font-bold  flex  h-[7]">
-                <a href="#" id="back-to-top" title="Remonter la page" class="animate-bounce mx-auto flex self-center">
+                <a href="#" id="back-to-top" title="Remonter la page"
+                    class="animate-bounce mx-auto flex self-center">
                     <h5>Go Up</h5><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor" class="w-4 h-[7] ml-2">
                         <path stroke-linecap="round" stroke-linejoin="round"

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('profil');
             $table->string('birthdate');
             $table->string('qualification')->nullable();
-            $table->foreignId("status_id")->default('9');
+            $table->foreignId("status_id")->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
