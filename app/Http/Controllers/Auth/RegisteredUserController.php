@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
             'nom' => 'required|string|max:255|min:3',
             'prenom' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:'.User::class,
-            'telephone' => 'required|string|max:255',
+            'telephone' => 'required|string|regex:/^[0-9]+$/',
             'adresse' => 'required|string|max:255|min:3',
             'sexe' => 'required|string|max:255',
             'profil' => 'file|image|mimes:jpg,jpeg,gif,png',

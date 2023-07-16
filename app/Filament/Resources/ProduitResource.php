@@ -29,7 +29,7 @@ class ProduitResource extends Resource
             ->schema([
                 //
                 Forms\Components\TextInput::make('nom_prod')->required()->label(__('Nom du Produit')),
-                Forms\Components\TextInput::make('descri_prod')->required()->label(__('Description du produit')),
+                Forms\Components\Textarea::make('descri_prod')->required()->label(__('Description du produit')),
                 Forms\Components\TextInput::make('prix_prod')->required()->label(__('Prix du produit')),
                 // Forms\Components\TextInput::make('categorie_id')->required()->relationship('Categorie', 'id'),
                 Select::make('categorie_id')

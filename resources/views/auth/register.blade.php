@@ -18,11 +18,17 @@
         </div>
         <!-- Telephone -->
         <div>
-            <x-input-label for="telephone" :value="__('Telephone')" />
-            <x-text-input id="telephone" class="block mt-1 w-full" type="tel" placeholder="+237 6........"
+            <x-input-label for="phone" :value="__('Telephone')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="tel" size="9" minlength="9" maxlength="9" placeholder="6 52 10........"
                 name="telephone" :value="old('telephone')" required autofocus autocomplete="telephone" />
             <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
         </div>
+        <script>
+            const phoneInputField = document.querySelector("#phone");
+            const phoneInput = window.intlTelInput(phoneInputField, {
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            });
+        </script>
         <!-- Adresse -->
         <div>
             <x-input-label for="adresse" :value="__('Adresse')" />

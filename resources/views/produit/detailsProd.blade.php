@@ -7,7 +7,7 @@
         <p class="h-1/4">Prix: {{$prod->prix_prod}} fcfa</p>
     </div>
     <div class="text-xs mx-2 w-full h-fit overflow-y-auto  px-1">
-        <p>{!! nl2br(e($prod->descri_prod)) !!}</p>
+        <p class="text-justify">{!! nl2br(e($prod->descri_prod)) !!}</p>
         <p>{{$prod->code_prod}}</p>
     </div>
 </div>
