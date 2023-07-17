@@ -17,7 +17,7 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
-    
+
         <style>
             [ x-cloak ] { display: none;}
         </style>
@@ -190,7 +190,7 @@
                     <x-responsive-nav-link :href="route('produit.index', [3])" class="focus:bg-blue-600">
                         {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('service', [4])" class="focus:bg-blue-600">
                         {{ __('Services') }}
                     </x-responsive-nav-link>
                 </nav>

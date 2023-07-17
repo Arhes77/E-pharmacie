@@ -153,6 +153,10 @@ Route::get('/apropos', function () {
     return view('apropos');
 })->name('apropos');
 
+Route::get('/services', function () {
+    return view('Services');
+})->name('service');
+
 
 //route pour la commande
 Route::post('/commande/formullaire',[CommandeController::class,'index'])->name('commande.index')->middleware('auth');
