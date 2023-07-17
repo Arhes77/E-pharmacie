@@ -13,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
-   
+
 </HEAD>
 
     <!-- Styles -->
     @vite('resources/css/app.css')
-    
+
         <style>
             [ x-cloak ] { display: none;}
         </style>
@@ -191,7 +191,7 @@
                     <x-responsive-nav-link :href="route('produit.index', [3])" class="focus:bg-blue-600">
                         {{ __('Vétérinaire') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('service', [4])" class="focus:bg-blue-600">
                         {{ __('Services') }}
                     </x-responsive-nav-link>
                 </nav>
