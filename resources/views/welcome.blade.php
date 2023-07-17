@@ -91,34 +91,26 @@
                 class="border  transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/acceuil1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Soin visage </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/minceur1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Desintoxification</p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
 
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4 h-max  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/demaquillant1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3">Demaquillant </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/sommeil1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-3"> Sommeil</p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
         </div>
         <div class="font-bold my-3 uppercase">
@@ -129,33 +121,25 @@
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/visage1.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Visage </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-blackark:bg-white w-1/4  my-5 ml-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/acceuil2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Huile Prodiguese </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-blackark:bg-white w-1/4 my-5 ml-5 items-center hover:shadow-xl hover:translate-y-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/demaquillant2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Nettoyant </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
             <div
                 class="border transition duration-700 ease-in delay-150 bg-white dark:bg-white dark:text-black w-1/4  my-5 mx-5 items-center hover:shadow-xl hover:translate-x-3 flex flex-col cursor-pointer">
                 <img src="images/acceuil/visage2.jpg" alt="Logo" class="w-fit mt-3 h-full" />
                 <p class="flex text-xl my-2">Soins visage </p>
-                <a href="#"
-                    class="cursor-pointer py-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600">Ajouter au
-                    pannier</a>
+                                <label class="cursor-pointer p-2 px-5 hover:opacity-70 text-white rounded-lg mb-1 bg-green-600"></label>
             </div>
 
         </div>
@@ -396,7 +380,7 @@
                     nous
                     mettons en œuvre jour après jour pour vous assurer une écoute et un service conforme à vos attentes. Les
                     plus grandes marques de médicaments et parapharmacie sur LaSante.net : <br>
-                <p class="text-blue-800">Filorga - Doliprane - Nurofen - Bioderma - Boiron - La Roche Posay - Vichy -
+                <p class="text-blue-800 dark:text-green-600 hover:opacity- cursor-pointer">Filorga - Doliprane - Nurofen - Bioderma - Boiron - La Roche Posay - Vichy -
                     Nicopass
                     - Efferalgan - Mustela - Weleda - Puressentiel - PiLeJe - Gallia - Elmex - Frontline - Humex - Hydralin
                     -
@@ -407,7 +391,7 @@
                 <i class="text-xl my-2">Les Tops Produits dans votre pharmacie en ligne :</i><br>
                 <p>Notre pharmacie en ligne propose également un large choix de matériel médical : vous trouverez, en ligne
                     sur
-                <p class="text-blue-800"> Gifrer Sérum Physiologique - Euphytose 120 comprimés - Novanuit Triple Action -
+                <p class="text-blue-800 dark:text-green-600 hover:opacity-80 cursor-pointer"> Gifrer Sérum Physiologique - Euphytose 120 comprimés - Novanuit Triple Action -
                     Oscillococcinum - Cotopads 8 x 10 - PiLeJe Lactibiane Référence - Préservision 180 capsules - Drill
                     pastilles sans sucre - Apaisyl Gel - Titanoréïne Crème - Microlax Adulte - Nutergia Ergyphilus -
                     Toplexil

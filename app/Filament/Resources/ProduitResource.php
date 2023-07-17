@@ -34,8 +34,6 @@ class ProduitResource extends Resource
                 Textarea::make('descri_prod')
                     ->rows(10)
                     ->cols(20)
-                    ->minLength(50)
-                    ->maxLength(500)
                     ->label(__('description du Produit')),
                 Forms\Components\TextInput::make('prix_prod')->required()->label(__('Prix du produit')),
                 // Forms\Components\TextInput::make('categorie_id')->required()->relationship('Categorie', 'id'),

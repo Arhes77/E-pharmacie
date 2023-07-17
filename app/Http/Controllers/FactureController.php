@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Commande;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -24,7 +25,16 @@ class FactureController extends Controller
 
 
 
-    public function create(){
+    public function create(int $id){
+
+        $articles = Article::where('commande_id', '=', $id)->get();
+        //dd($articles);
+        $cmd = Commande::findOrFail($id);//Commande::where('id', '=', $id)->get();
+        //dd($cmd);
+        $montant = $cmd->prixT_com;
+        //dd($articles);
+
+        return Pdf::loadView('facture.exemplaire', compact('articles', 'cmd', 'montant'))->download('Facture.pdf');
 
     }
 }

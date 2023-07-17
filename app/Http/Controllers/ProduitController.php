@@ -189,4 +189,12 @@ return redirect(route('produit.index','1'));
         return redirect(route('produit.index'));
 
     }
+
+    public function showresult( $id){
+        
+        $produit = Produit::where('id','=',$id)->first();
+        
+        return view('produit.result',compact('produit'));
+
+    }
 }

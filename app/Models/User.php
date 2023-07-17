@@ -17,7 +17,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
 
-class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
+
+
+class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail,FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -42,6 +44,11 @@ class User extends Authenticatable implements HasName, HasAvatar,MustVerifyEmail
 
 
     // ...
+
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->status_id, '1') && $this->hasVerifiedEmail();
+    }
 
     public function getFilamentAvatarUrl(): ?string
     {
