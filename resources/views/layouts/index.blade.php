@@ -50,7 +50,7 @@
         $('#back-to-top').click(function() {
             $('html, body').animate({
                 scrollTop: 0
-            }, 800);
+            }, 900);
             return false;
         });
     });
@@ -59,7 +59,7 @@
 <body>
     <div>
         <header id="header"
-            class="z-10 transition duration-300 ease-in-out transform bg-gray-100 dark:bg-gray-900 top-0 w-full mx-auto my-auto justify-between items-center text-sm">
+            class="z-10 transition duration-300 ease-in-out transform bg-white  top-0 w-full mx-auto my-auto justify-between items-center text-sm">
             {{-- contactez nous et user component --}}
             <div class="bg-black text-white w-full flex">
                 {{-- contactez nous  --}}
@@ -164,8 +164,8 @@
             {{-- Logo composant de recherche et pannier --}}
             <div class="flex mb-0 flex-row w-full ">
                 {{-- Logo --}}
-                <div class="flex lg:w-1/4  py-2">
-                    <x-application-logo />
+                <div class="lg:w-1/4  py-2">
+                    <x-application-logo class="h-fit w-full" />
                 </div>
                 {{-- composant de recherche --}}
                 <div class="py-auto self-center flex lg:w-1/2">
